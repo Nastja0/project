@@ -1,24 +1,15 @@
-.browser {
-    display: flex;
-    justify-content: center;
-
-}
-.window{
-    width: 680px;
-    height: 420px;
-    background-color: gray;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .button-start{
     width: 25%;
     background: transparent;
-    border: transparent;
+    border: none;
+    margin-bottom: 25px;
 }
 
 .name{
     text-align: center;
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    color: inherit;
+    outline: none;
 }

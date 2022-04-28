@@ -1,18 +1,3 @@
-.browser {
-    display: flex;
-    justify-content: center;
-
-}
-.window{
-    width: 680px;
-    height: 420px;
-    background-color: gray;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .carts{
     width: 75%;
     height: 50%;
@@ -21,14 +6,14 @@
 }
 
 .cart{
-    width: 40%;
-    height: auto;
+    width: 150px;
+    height: 200px;
     background-color: black;
     border: 2px solid mediumvioletred;
 }
 
 .button-add{
-    width: 25%;
+    width: 50%;
     background: transparent;
-    border: transparent;
+    border: none;
 }

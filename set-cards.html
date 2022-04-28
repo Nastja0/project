@@ -3,20 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="styles-set-cards.css" />
-
+    <link rel="stylesheet" href="styles-set-cards.css"/>
+    <link rel="stylesheet" href="styles-window.css"/>
+    <link rel="stylesheet" href="styles-modal.css"/>
+    <link rel="stylesheet" href="styles-game-field.css"/>
 </head>
 <body>
-<div class='browser'>
-    <div class="window">
+
+<div class="window">
+    <div class="player">
+        <h1 class="name">ваше имя</h1>
+        <progress class="lives" max="100" value="60"></progress>
+    </div>
+    <!--<div class="modal" name="set-cards">
         <h1 class="name-game">Собери стартовый набор из 5 карт</h1>
         <div class="carts">
             <div class="cart"></div>
             <div class="cart"></div>
         </div>
         <button type="button" class="button-add">Добавить</button>
-    </div>
-
+    </div>-->
 </div>
+
+
+<script src="set-cards.js"></script>
 </body>
 </html>
