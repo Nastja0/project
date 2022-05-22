@@ -10,10 +10,10 @@
 </head>
 <body>
 
-<div class="window">
+<div class="window" >
     <div class="player">
         <h1 class="name">ваше имя</h1>
-        <progress class="lives" max="100" value="60"></progress>
+        <progress class="lives" max="100" value="40"></progress>
     </div>
     <!--<div class="modal" name="set-cards">
         <h1 class="name-game">Собери стартовый набор из 5 карт</h1>
@@ -23,9 +23,34 @@
         </div>
         <button type="button" class="button-add">Добавить</button>
     </div>-->
+    <!--<div class="modal" name="new-card">
+        <h1 class="name-game">Выберите одну новую карту</h1>
+        <div class="carts">
+            <div class="cart"></div>
+            <div class="cart"></div>
+            <div class="cart"></div>
+        </div>
+        <button type="button" class="button-add">Добавить</button>
+    </div>-->
+    <div class="modal" name="game">
+        <img width=150 src="https://freesvg.org/img/1571831107liftarn_Pin-up_blue.png">
+        <div class="carts">
+            <div class="cart opponents"></div>
+            <div class="cart opponents"></div>
+            <div class="cart opponents"></div>
+        </div>
+        <div class="carts">
+            <div class="cart games"></div>
+            <div class="cart games"></div>
+        </div>
+        <div class="carts">
+            <div class="cart players"></div>
+            <div class="cart players"></div>
+            <div class="cart players"></div>
+        </div>
+    </div>
 </div>
+<script src="get-window-size.js"></script>
 
-
-<script src="set-cards.js"></script>
 </body>
 </html>

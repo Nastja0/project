@@ -8,11 +8,19 @@
 }
 
 .lives {
-    background-color: #022625;
-    border: 0;
+    border: none;
     height: 20px;
     width: 200px;
+}
 
+.lives::-webkit-progress-value {
+    background: red;
+    border-radius: 2px 5px 5px 2px;
+    box-shadow: 0 -10px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.lives::-webkit-progress-bar {
+    background: #603e3e;
     border-radius: 2px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    box-shadow: 0 -10px 5px rgba(0, 0, 0, 0.25) inset;
 }

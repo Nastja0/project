@@ -1,5 +1,5 @@
 .carts{
-    width: 75%;
+    width: 85%;
     height: 50%;
     display: flex;
     justify-content: space-around;
@@ -16,4 +16,19 @@
     width: 50%;
     background: transparent;
     border: none;
+}
+
+.opponents{
+    width: 10%;
+    height: 10%;
+}
+
+.games{
+    width: 30%;
+    height: 30%;
+}
+
+.players{
+    width: 50%;
+    height: 50%;
 }
