@@ -1,15 +1,27 @@
+* {
+    font-family: 'Pangolin', cursive;
+    color: rgba(45, 45, 45, 0.88);
+    text-align: center;
+}
+
+
 .button-start{
     width: 25%;
     background: transparent;
     border: none;
-    margin-bottom: 25px;
+    font-size: 3vw;
 }
 
 .name{
-    text-align: center;
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #9a9a9a;
     background-color: transparent;
     color: inherit;
-    outline: none;
+    font-size: 2vw;
+
+}
+
+.name-game{
+    width: 60%;
+    font-size: 5vw;
 }

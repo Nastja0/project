@@ -4,7 +4,6 @@
     left: 0;
     height: 864px;
     width: 1536px;
-    overflow-x: scroll;
 
 
     background-color: gray;
@@ -12,8 +11,6 @@
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
+    background-image: url("background.png");
 }
 
-.overflow {
-    min-height: 400px;
-}

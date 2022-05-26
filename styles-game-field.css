@@ -4,8 +4,49 @@
     left: 0;
     width: 250px;
     height: 100px;
-    border: 1px solid white;
+
+    background: -webkit-gradient(linear, 0% 20%, 0% 92%, from(#f3f3f3), to(#939393));
+    border-bottom-right-radius: 60px 60px;
+    padding-bottom: 20px;
+
 }
+
+.player:before{
+    content:'';
+
+    width: 30px;
+    height: 30px;
+
+    position: absolute;
+    bottom:0;
+    right:0;
+
+    border-bottom-right-radius: 35px 20px;
+    box-shadow:-2px -2px 5px rgba(0, 0, 0, 0.3);
+
+    transform:
+            rotate(-18deg)
+            skew(-40deg,-3deg)
+            translate(-13px,-13px);
+}
+
+.player:after{
+    content:'';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom-right-radius: 15px;
+
+    -webkit-box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.2);
+}
+
+.name{
+    margin-left: 20px;
+}
+
 
 .lives {
     border: none;
