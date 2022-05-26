@@ -1,15 +1,9 @@
-* {
-    font-family: 'Pangolin', cursive;
-    color: rgba(45, 45, 45, 0.88);
-    text-align: center;
-}
-
-
 .button-start{
     width: 25%;
     background: transparent;
     border: none;
     font-size: 3vw;
+    text-align: center;
 }
 
 .name{
@@ -18,10 +12,11 @@
     background-color: transparent;
     color: inherit;
     font-size: 2vw;
-
+    text-align: center;
 }
 
 .name-game{
     width: 60%;
     font-size: 5vw;
+    text-align: center;
 }

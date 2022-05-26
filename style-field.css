@@ -1,6 +1,7 @@
 .field {
     position: relative;
     width: 80%;
+    height: 90%;
 
     display: flex;
     align-items: center;

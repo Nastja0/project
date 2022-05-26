@@ -1,38 +1,45 @@
+.name-game{
+    font-size: 3.5vw;
+}
+
 .carts{
     width: 85%;
-    height: 50%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .cart{
     width: 150px;
     height: 200px;
-    background-color: black;
-    border: 2px solid mediumvioletred;
+    background-image: url("card.png");
+    background-size: 100% 100%;
+
+    margin-bottom: 4%;
 }
 
 .button-add{
     width: 50%;
     background: transparent;
     border: none;
+    margin-bottom: 5%;
+    font-size: 2.5vw;
 }
 
 .opponents{
-    width: 10%;
-    height: 10%;
+    width: 66px;
+    height: 88px;
 }
 
 .games{
-    width: 30%;
-    height: 30%;
+    width: 78px;
+    height: 104px;
+}
+
+.gamess{
+    justify-content: space-evenly;
 }
 
 .players{
-    width: 50%;
-    height: 50%;
-}
-
-.opponent{
-
+    width: 90px;
+    height: 120px;
 }
