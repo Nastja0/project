@@ -14,6 +14,7 @@
     background-image: url("card.png");
     background-size: 100% 100%;
 
+
     margin-bottom: 4%;
 }
 
@@ -35,11 +36,8 @@
     height: 104px;
 }
 
-.gamess{
-    justify-content: space-evenly;
-}
-
 .players{
+    min-width: 90px;
     width: 90px;
     height: 120px;
 }
