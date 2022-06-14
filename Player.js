@@ -1,10 +1,9 @@
-type="module";
-
-class Player {
+export default class Player {
     constructor(name) {
         this.name = name;
         this.lives = 100;
         this.money = 100;
+        this.inventory = [];
     }
 
     damage(lives) {
@@ -20,16 +19,26 @@ class Player {
         return true;
     }
 
-    purchase(money) {
-        if (this.money < money) {
-            this.money -= money;
+    purchase(card) {
+        if (this.money >= card.money) {
+            this.money -= card.money;
+            this.inventory.push(card);
             return true;
         }
         return false;
     }
 
-    income(money) {
-        this.money += money;
+    receiving(card) {
+        this.inventory.push(card);
+        return true;
+    }
+
+    income(card) {
+        if (card.type !== 'money') {
+            let del_card = this.inventory.indexOf(card);
+            this.inventory.splice(del_card, -1);
+        }
+        this.money += card.money;
         return true;
     }
 
@@ -37,5 +46,3 @@ class Player {
         return "Game over";
     }
 }
-
-let player;

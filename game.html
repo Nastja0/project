@@ -3,32 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="styles-set-cards.css"/>
-    <link rel="stylesheet" href="styles-window.css"/>
-    <link rel="stylesheet" href="styles-modal.css"/>
-    <link rel="stylesheet" href="styles-game-field.css"/>
-    <link rel="stylesheet" href="style-field.css">
+    <link rel="stylesheet" href="style/styles-window.css">
+    <link rel="stylesheet" href="style/styles-start.css">
+    <link rel="stylesheet" href="style/styles-player.css">
+    <link rel="stylesheet" href="style/style-field.css"><!--
+
+    <link rel="stylesheet" href="style/styles-set-cards.css"/>
+
+    <link rel="stylesheet" href="style/styles-modal.css"/>-->
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
 </head>
 <body>
-
 <div class="window" >
-    <div class="player">
+    <div id="start" class="field">
+        <h1 class="name-game">Свет в конце <s>панели</s> тоннеля</h1>
+        <input class="name" value="">
+        <button type="button" class="button-start">Начать</button>
+    </div>
+    <div id="player" class="player" style="display: none">
         <h1 class="name">Г</h1>
+        <div class="money">
+            <img src="image/money.png" height="20px" style="margin-left: 5px">
+            <h1 class="money">100</h1>
+        </div>
         <progress class="lives" max="100" value="40"></progress>
+    </div >
+    <div id="map" class="field" style="display: none">
     </div>
-    <div id="field" class="field">
-
-    </div>
-    <!--<div class="modal" name="set-cards">
+    <div class="modal" id="set-cards" style="display: none">
         <h1 class="name-game">Собери стартовый набор из 5 карт</h1>
         <div class="carts">
             <div class="cart"></div>
             <div class="cart"></div>
         </div>
         <button type="button" class="button-add">Добавить</button>
-    </div>-->
-    <!--<div class="modal" name="new-card">
+    </div>
+    <div class="modal" id="new-card" style="display: none">
         <h1 class="name-game">Выберите одну новую карту</h1>
         <div class="carts">
             <div class="cart"></div>
@@ -36,8 +46,8 @@
             <div class="cart"></div>
         </div>
         <button type="button" class="button-add">Добавить</button>
-    </div>-->
-    <div class="modal" name="game">
+    </div>
+    <div class="modal" id="game" style="display: none">
         <div class="carts">
             <div class="cart opponents"></div>
             <div class="cart opponents"></div>
@@ -59,7 +69,9 @@
         </div>
     </div>
 </div>
-<script src="get-window-size.js"></script>
+<script src="get-window-size.js" type="module"></script>
+<script src="start.js" type="module"></script>
+<script src="Player.js" type="module"></script>
 
 </body>
 </html>
