@@ -1,5 +1,3 @@
-import Player from "./Player.js";
-
 const document_start = document.getElementById('start');
 const document_button_start = document_start.querySelector(".button-start");
 const document_name = document_start.querySelector("input");
