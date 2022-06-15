@@ -8,7 +8,7 @@ app.use(express.static('views'))
 app.engine('html', require('ejs').renderFile);
 
 app.get('/', (req, res) => {
-    res.render(`index.ejs`);
+    res.render(`./start/game.ejs`);
 });
 app.listen(process.env.port || PORT, () =>
     console.log("Server started work on port " + PORT))
