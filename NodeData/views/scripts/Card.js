@@ -1,10 +1,9 @@
 class Card{
-    constructor(name, image, type, image_type) {
+    constructor(name, image, type) {
         this.name = name;
         this.image = image;
 
         this.type = type;
-        this.image_type = image_type;
     }
 }
 
@@ -15,34 +14,35 @@ class Ability extends Card {
 }
 
 //атака
-class Attack extends Creature {
-    constructor(name = "", image = '',
-                type ='attack', image_type='',
+class Attack extends Ability {
+    constructor(name = "Фаербол", image = '../image/fireball.png',
+                type ='attack',
                 attack) {
-        super(name, image, type, image_type);
+        super(name, image, type);
         this.attack = attack;
     }
 }
+
 //лечение
-class Heal extends Creature {
-    constructor(name = "", image = '',
-                type ='heal', image_type='',
+class Heal extends Ability {
+    constructor(name = "Помощь с небес", image = '../image/aid.png',
+                type ='heal',
                 heal) {
-        super(name, image, type, image_type);
+        super(name, image, type);
         this.heal = heal;
     }
 }
-
-class Shield extends Creature {
-    constructor(name = "", image = '',
-                type ='heal', image_type='',
+//щит
+class Shield extends Ability {
+    constructor(name = "Эгида", image = '',
+                type ='heal',
                 sield) {
-        super(name, image, type, image_type);
+        super(name, image, type);
         this.sield = sield;
     }
 }
 
-class Money extends Creature {
+class Money extends Ability {
     constructor(name = "", image = '',
                 type ='heal', image_type='',
                 monet) {

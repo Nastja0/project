@@ -2,15 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="style/styles-window.css">
-    <link rel="stylesheet" href="style/styles-start.css">
-    <link rel="stylesheet" href="style/styles-player.css">
-    <link rel="stylesheet" href="style/style-field.css"><!--
-
-    <link rel="stylesheet" href="style/styles-set-cards.css"/>
-
-    <link rel="stylesheet" href="style/styles-modal.css"/>-->
+    <title>Свет в конце -п-а-н-е-л-и- тоннеля</title>
+    <link rel="stylesheet" href="../style/styles-window.css">
+    <link rel="stylesheet" href="../style/styles-start.css">
+    <link rel="stylesheet" href="../style/styles-player.css">
+    <link rel="stylesheet" href="../style/style-field.css">
+    <link rel="stylesheet" href="../style/styles-set-cards.css"/>
+    <link rel="stylesheet" href="../style/styles-modal.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -23,9 +21,10 @@
     <div id="player" class="player" style="display: none">
         <h1 class="name">Г</h1>
         <div class="money">
-            <img src="image/money.png" height="20px" style="margin-left: 5px">
+            <img src="../image/money.png" height="20px" style="margin-left: 5px">
             <h1 class="money">100</h1>
         </div>
+        <progress class="lives" max="100" value="40"></progress>
         <progress class="lives" max="100" value="40"></progress>
     </div >
     <div id="map" class="field" style="display: none">
@@ -69,9 +68,9 @@
         </div>
     </div>
 </div>
-<script src="scripts/get-window-size.js" type="module"></script>
-<script src="scripts/start.js" type="module"></script>
-<script src="scripts/Player.js" type="module"></script>
+<script src="../scripts/get-window-size.js" type="module" ></script>
+<script src="../scripts/start.js" type="module"></script>
+<script src="../scripts/Player.js" type="module"></script>
 
 </body>
 </html>

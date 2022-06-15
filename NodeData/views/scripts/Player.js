@@ -1,10 +1,11 @@
-/*export default*/
-class Player {
+export default class Player {
     constructor(name) {
         this.name = name;
         this.lives = 100;
-        this.money = 100;
+        this.money = 0;
         this.inventory = [];
+        this.changing_money();
+        this.changing_lives();
     }
 
     //получение урона
