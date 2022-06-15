@@ -1,0 +1,23 @@
+.field {
+    position: relative;
+    width: 80%;
+    height: 90%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+
+    background-image: url("../image/scaled.png");
+    background-size: 100% 100%;
+}
+
+.field:before{
+    content: "";
+    padding-top: 10%;
+}
+
+.field:after{
+    content: "";
+    padding-bottom: 10%;
+}
