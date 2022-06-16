@@ -1,19 +1,167 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="style/styles-window.css">
-    <link rel="stylesheet" href="style/styles-start.css">
-    <link rel="stylesheet" href="style/styles-player.css">
-    <link rel="stylesheet" href="style/style-field.css"><!--
-
-    <link rel="stylesheet" href="style/styles-set-cards.css"/>
-
-    <link rel="stylesheet" href="style/styles-modal.css"/>-->
+    <title>Свет в конце -п-а-н-е-л-и- тоннеля</title>
+    <link rel="stylesheet" href="../style/styles-window.css">
+    <link rel="stylesheet" href="../style/styles-start.css">
+    <link rel="stylesheet" href="../style/styles-player.css">
+    <link rel="stylesheet" href="../style/style-field.css">
+    <link rel="stylesheet" href="../style/styles-set-cards.css"/>
+    <link rel="stylesheet" href="../style/styles-modal.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
 </head>
 <body>
+<button class="map" name="map" style="position: absolute; z-index: 9999; bottom: 10%;"  onclick="show()">
+    ShowMap
+    <script>
+        function show(){
+            img = document.getElementsByTagName("svg").item(0);
+            if (img.style.display === "none")
+                img.style.display = "block";
+            else
+                img.style.display = "none";
+        }
+    </script>
+</button>
+<svg  viewBox="770 170 560 560" width="512" height="512" version="1.1" style="position: absolute; z-index: 9999;" xmlns="http://www.w3.org/2000/svg" display="none">
+    <style>.vertex {
+            font-family: Consolas
+        }
+
+        .edge {
+            font-family: Consolas
+        }
+
+        .text {
+            font-family: Consolas
+        }</style>
+    <path d="M 900 500L 900 235.0006103515625" stroke="#000000" fill="transparent" stroke-width="2"></path>
+    <path transform="translate(900 235.0006103515625) rotate(-90)" d="M-1, -5 L 14 0 L -1, 5 z" fill="#000000"></path>
+    <text class="edge" transform="translate(900 350) rotate(-90)" fill="#000000" x="0" y="-5"
+          dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+    <path d="M 1000 700L 924.7467041015625 624.7467041015625" stroke="#000000" fill="transparent"
+          stroke-width="2"></path>
+    <path transform="translate(924.7467041015625 624.7467041015625) rotate(-135)" d="M-1, -5 L 14 0 L -1, 5 z"
+          fill="#000000"></path>
+    <text class="edge" transform="translate(950 650) rotate(45)" fill="#000000" x="0" y="-5"
+          dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+    <path d="M 900 600L 975.2532958984375 524.7467041015625" stroke="#000000" fill="transparent"
+          stroke-width="2"></path>
+    <path transform="translate(975.2532958984375 524.7467041015625) rotate(-45)" d="M-1, -5 L 14 0 L -1, 5 z"
+          fill="#000000"></path>
+    <text class="edge" transform="translate(950 550) rotate(-45)" fill="#000000" x="0" y="-5"
+          dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+    <path d="M 900 600L 900 535.0006103515625" stroke="#000000" fill="transparent" stroke-width="2"></path>
+    <path transform="translate(900 535.0006103515625) rotate(-90)" d="M-1, -5 L 14 0 L -1, 5 z" fill="#000000"></path>
+    <text class="edge" transform="translate(900 550) rotate(-90)" fill="#000000" x="0" y="-5"
+          dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+    <path d="M 900 600L 824.7467041015625 524.7467041015625" stroke="#000000" fill="transparent"
+          stroke-width="2"></path>
+    <path transform="translate(824.7467041015625 524.7467041015625) rotate(-135)" d="M-1, -5 L 14 0 L -1, 5 z"
+          fill="#000000"></path>
+    <text class="edge" transform="translate(850 550) rotate(45)" fill="#000000" x="0" y="-5"
+          dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+    <path d="M 1000 700L 1075.2532958984375 624.7467041015625" stroke="#000000" fill="transparent"
+          stroke-width="2"></path>
+    <path transform="translate(1075.2532958984375 624.7467041015625) rotate(-45)" d="M-1, -5 L 14 0 L -1, 5 z"
+          fill="#000000"></path>
+    <text class="edge" transform="translate(1050 650) rotate(-45)" fill="#000000" x="0" y="-5"
+          dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+    <path d="M 1100 600L 1175.2532958984375 524.7467041015625" stroke="#000000" fill="transparent"
+          stroke-width="2"></path>
+    <path transform="translate(1175.2532958984375 524.7467041015625) rotate(-45)" d="M-1, -5 L 14 0 L -1, 5 z"
+          fill="#000000"></path>
+    <text class="edge" transform="translate(1150 550) rotate(-45)" fill="#000000" x="0" y="-5"
+          dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+    <path d="M 1200 500L 1124.7467041015625 424.7467041015625" stroke="#000000" fill="transparent"
+          stroke-width="2"></path>
+    <path transform="translate(1124.7467041015625 424.7467041015625) rotate(-135)" d="M-1, -5 L 14 0 L -1, 5 z"
+          fill="#000000"></path>
+    <text class="edge" transform="translate(1150 450) rotate(45)" fill="#000000" x="0" y="-5"
+          dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+    <path d="M 1200 500L 1275.2532958984375 424.7467041015625" stroke="#000000" fill="transparent"
+          stroke-width="2"></path>
+    <path transform="translate(1275.2532958984375 424.7467041015625) rotate(-45)" d="M-1, -5 L 14 0 L -1, 5 z"
+          fill="#000000"></path>
+    <text class="edge" transform="translate(1250 450) rotate(-45)" fill="#000000" x="0" y="-5"
+          dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+    <path d="M 1100 400L 1175.2532958984375 324.7467041015625" stroke="#000000" fill="transparent"
+          stroke-width="2"></path>
+    <path transform="translate(1175.2532958984375 324.7467041015625) rotate(-45)" d="M-1, -5 L 14 0 L -1, 5 z"
+          fill="#000000"></path>
+    <text class="edge" transform="translate(1150 350) rotate(-45)" fill="#000000" x="0" y="-5"
+          dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+    <path d="M 1300 400L 1224.7467041015625 324.7467041015625" stroke="#000000" fill="transparent"
+          stroke-width="2"></path>
+    <path transform="translate(1224.7467041015625 324.7467041015625) rotate(-135)" d="M-1, -5 L 14 0 L -1, 5 z"
+          fill="#000000"></path>
+    <text class="edge" transform="translate(1250 350) rotate(45)" fill="#000000" x="0" y="-5"
+          dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+    <path d="M 1200 300L 933.2061767578125 211.0687255859375" stroke="#000000" fill="transparent"
+          stroke-width="2"></path>
+    <path transform="translate(933.2061767578125 211.0687255859375) rotate(-161.56505117707798)"
+          d="M-1, -5 L 14 0 L -1, 5 z" fill="#000000"></path>
+    <text class="edge" transform="translate(1050 250) rotate(18.434948822922006)" fill="#000000" x="0" y="-5"
+          dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+    <path d="M 800 500L 888.9312744140625 233.2061767578125" stroke="#000000" fill="transparent"
+          stroke-width="2"></path>
+    <path transform="translate(888.9312744140625 233.2061767578125) rotate(-71.56505117707799)"
+          d="M-1, -5 L 14 0 L -1, 5 z" fill="#000000"></path>
+    <text class="edge" transform="translate(850 350) rotate(-71.56505117707799)" fill="#000000" x="0" y="-5"
+          dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+    <path d="M 1000 500L 911.0687255859375 233.2061767578125" stroke="#000000" fill="transparent"
+          stroke-width="2"></path>
+    <path transform="translate(911.0687255859375 233.2061767578125) rotate(-108.43494882292201)"
+          d="M-1, -5 L 14 0 L -1, 5 z" fill="#000000"></path>
+    <text class="edge" transform="translate(950 350) rotate(71.56505117707799)" fill="#000000" x="0" y="-5"
+          dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+    <g class="vertex" id="1" nextid = ['2','3']>
+        <circle cx="1000" cy="700" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+        <text x="1000" y="700" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">1</text>
+    </g>
+    <g class="vertex" id="2" nextid = ['7']>
+        <circle cx="1100" cy="600" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+        <text x="1100" y="600" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">2</text>
+    </g>
+    <g class="vertex" id="3" nextid=['4','5','6']>
+        <circle cx="900" cy="600" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+        <text x="900" y="600" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">3</text>
+    </g>
+    <g class="vertex" id="4" nextid=['11']>
+        <circle cx="800" cy="500" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+        <text x="800" y="500" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">4</text>
+    </g>
+    <g class="vertex" id="5" nextid=['11']>
+        <circle cx="900" cy="500" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+        <text x="900" y="500" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">5</text>
+    </g>
+    <g class="vertex" id="6" nextid=['11']>
+        <circle cx="1000" cy="500" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+        <text x="1000" y="500" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">6</text>
+    </g>
+    <g class="vertex" id="7" nextid=['8','9']>
+        <circle cx="1200" cy="500" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+        <text x="1200" y="500" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">7</text>
+    </g>
+    <g class="vertex" id="8" nextid=['10']>
+        <circle cx="1100" cy="400" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+        <text x="1100" y="400" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">8</text>
+    </g>
+    <g class="vertex" id="9" nextid=['10']>
+        <circle cx="1300" cy="400" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+        <text x="1300" y="400" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">9</text>
+    </g>
+    <g class="vertex" id="10" nextid=['11']>
+        <circle cx="1200" cy="300" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+        <text x="1200" y="300" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">10</text>
+    </g>
+    <g class="vertex" id="11" nextid=['itsEnd']>
+        <circle cx="900" cy="200" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+        <text x="900" y="200" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">11</text>
+    </g>
+</svg>
 <div class="window" >
     <div id="start" class="field">
         <h1 class="name-game">Свет в конце <s>панели</s> тоннеля</h1>
@@ -23,9 +171,10 @@
     <div id="player" class="player" style="display: none">
         <h1 class="name">Г</h1>
         <div class="money">
-            <img src="image/money.png" height="20px" style="margin-left: 5px">
+            <img src="../image/money.png" height="20px" style="margin-left: 5px">
             <h1 class="money">100</h1>
         </div>
+        <progress class="lives" max="100" value="40"></progress>
         <progress class="lives" max="100" value="40"></progress>
     </div >
     <div id="map" class="field" style="display: none">
@@ -69,9 +218,10 @@
         </div>
     </div>
 </div>
-<script src="scripts/get-window-size.js" type="module"></script>
-<script src="scripts/start.js" type="module"></script>
-<script src="scripts/Player.js" type="module"></script>
+<script src="../scripts/get-window-size.js" type="module"></script>
+<script src="../scripts/start.js" type="module"></script>
+<script src="../scripts/Player.js" type="module"></script>
+<script src="../scripts/Map.js" type="module"></script>
 
 </body>
 </html>
