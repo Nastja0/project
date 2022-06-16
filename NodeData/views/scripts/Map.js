@@ -9,6 +9,6 @@ leveltree.forEach(el => {
             return;
         allowedNodes = node.getAttribute('nextid');
         let circle = el.getElementsByTagName('circle').item(0);
-        circle.setAttribute('fill','#ff0000');
+        circle.style.fill= '#ff0000';
     });
 })

@@ -1,0 +1,12 @@
+.gpaphFonts{
+    font-size: 18px;
+    fill: black;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+.gpaphCircles{
+    r:28;
+    fill: white;
+    stroke: black;
+    stroke-width: 1.5;
+}

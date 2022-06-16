@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../style/style-field.css">
     <link rel="stylesheet" href="../style/styles-set-cards.css"/>
     <link rel="stylesheet" href="../style/styles-modal.css"/>
+    <link rel="stylesheet" href="../style/styles-gpaph-items.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -28,18 +29,8 @@
         <progress class="lives" max="100" value="40"></progress>
     </div >
     <div id="map" class="field" style="display: none">
-        <svg viewBox="770 170 560 560" width="512" height="512" style="display: block;" xmlns="http://www.w3.org/2000/svg" display="none">
-            <style>.vertex {
-                    font-family: Consolas
-                }
-
-                .edge {
-                    font-family: Consolas
-                }
-
-                .text {
-                    font-family: Consolas
-                }</style>
+        <svg viewBox="770 170 560 560" width="512" height="512"  xmlns="http://www.w3.org/2000/svg" >
+            <g>
             <path d="M 900 500L 900 235.0006103515625" stroke="#000000" fill="transparent" stroke-width="2"></path>
             <path transform="translate(900 235.0006103515625) rotate(-90)" d="M-1, -5 L 14 0 L -1, 5 z" fill="#000000"></path>
             <text class="edge" transform="translate(900 350) rotate(-90)" fill="#000000" x="0" y="-5"
@@ -120,49 +111,50 @@
                   d="M-1, -5 L 14 0 L -1, 5 z" fill="#000000"></path>
             <text class="edge" transform="translate(950 350) rotate(71.56505117707799)" fill="#000000" x="0" y="-5"
                   dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+            </g>
             <g class="vertex" id="1" nextid = ['2','3']>
-                <circle cx="1000" cy="700" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
-                <text x="1000" y="700" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">1</text>
+                <circle cx="1000" cy="700" class="gpaphCircles"/>
+                <text x="1000" y="700" class="gpaphFonts">Lava</text>
             </g>
             <g class="vertex" id="2" nextid = ['7']>
-                <circle cx="1100" cy="600" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
-                <text x="1100" y="600" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">2</text>
+                <circle cx="1100" cy="600" class="gpaphCircles"/>
+                <text x="1100" y="600" class="gpaphFonts">Chest</text>
             </g>
             <g class="vertex" id="3" nextid=['4','5','6']>
-                <circle cx="900" cy="600" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
-                <text x="900" y="600" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">3</text>
+                <circle cx="900" cy="600" class="gpaphCircles"/>
+                <text x="900" y="600" class="gpaphFonts">Grass</text>
             </g>
             <g class="vertex" id="4" nextid=['11']>
-                <circle cx="800" cy="500" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
-                <text x="800" y="500" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">4</text>
+                <circle cx="800" cy="500" class="gpaphCircles"/>
+                <text x="800" y="500" class="gpaphFonts">Chest</text>
             </g>
             <g class="vertex" id="5" nextid=['11']>
-                <circle cx="900" cy="500" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
-                <text x="900" y="500" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">5</text>
+                <circle cx="900" cy="500" class="gpaphCircles"/>
+                <text x="900" y="500" class="gpaphFonts">Desert</text>
             </g>
             <g class="vertex" id="6" nextid=['11']>
-                <circle cx="1000" cy="500" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
-                <text x="1000" y="500" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">6</text>
+                <circle cx="1000" cy="500" class="gpaphCircles"/>
+                <text x="1000" y="500" class="gpaphFonts">Shop</text>
             </g>
             <g class="vertex" id="7" nextid=['8','9']>
-                <circle cx="1200" cy="500" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
-                <text x="1200" y="500" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">7</text>
+                <circle cx="1200" cy="500" class="gpaphCircles"/>
+                <text x="1200" y="500" class="gpaphFonts">Edge</text>
             </g>
             <g class="vertex" id="8" nextid=['10']>
-                <circle cx="1100" cy="400" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
-                <text x="1100" y="400" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">8</text>
+                <circle cx="1100" cy="400" class="gpaphCircles"/>
+                <text x="1100" y="400" class="gpaphFonts">Shop</text>
             </g>
             <g class="vertex" id="9" nextid=['10']>
-                <circle cx="1300" cy="400" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
-                <text x="1300" y="400" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">9</text>
+                <circle cx="1300" cy="400" class="gpaphCircles"/>
+                <text x="1300" y="400" class="gpaphFonts">Abyss</text>
             </g>
             <g class="vertex" id="10" nextid=['11']>
-                <circle cx="1200" cy="300" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
-                <text x="1200" y="300" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">10</text>
+                <circle cx="1200" cy="300" class="gpaphCircles"/>
+                <text x="1200" y="300" class="gpaphFonts">Chest</text>
             </g>
             <g class="vertex" id="11" nextid=['itsEnd']>
-                <circle cx="900" cy="200" r="20" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
-                <text x="900" y="200" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18px">11</text>
+                <circle cx="900" cy="200" class="gpaphCircles"/>
+                <text x="900" y="200" class="gpaphFonts">Hell</text>
             </g>
         </svg>
     </div>
