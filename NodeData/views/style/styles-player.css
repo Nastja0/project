@@ -1,4 +1,4 @@
-.player{
+.player {
     position: fixed;
     z-index: 5;
     top: 0;
@@ -11,18 +11,17 @@
     flex-direction: column;
 }
 
-.player .name{
+.player .name {
     margin: 0;
     margin-left: 18px;
 }
 
-.money{
+.money {
     margin: 0;
-    margin-left: 10px;
-    display: inherit;
+    display: inline-flex;
 }
 
-.count-money{
+.count-money {
     font-size: 1em;
     margin: 0;
     margin-left: 5px;

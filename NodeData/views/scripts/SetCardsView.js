@@ -6,7 +6,7 @@ class SetCardsView {
         this.modal.style.display = 'flex';
         this.name = this.modal.querySelector('.name-game');
         this.set_cards = this.modal.querySelector('.set-cards');
-        this.number = 1;
+        this.number = 0;
         this.max_number = 0;
         this.updateData(name, number);
     }
@@ -22,9 +22,9 @@ const add_cards = function (set_cards, player) {
         let card = creat_rand_card();
         card.view.card.addEventListener('click', function () {
             document.getElementById('set-cards').querySelector('.set-cards').innerHTML = '';
+            player.receiving(card);
+            set_cards.number += 1;
             if (set_cards.number < set_cards.max_number) {
-                player.receiving(card);
-                set_cards.number += 1;
                 add_cards(set_cards, player);
             } else {
                 document.getElementById('set-cards').style.display = 'none';

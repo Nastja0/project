@@ -1,0 +1,21 @@
+.inventoryImg {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    height: 10ex;
+}
+
+.inventory {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    width: 80%;
+    height: 73%;
+    text-align: center;
+    overflow: auto;
+
+}
+
+.inventory card {
+    display: inline-block;
+}

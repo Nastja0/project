@@ -16,12 +16,13 @@ export default function creat_rand_card(type = type_card[Math.floor(Math.random(
 }
 
 class Card {
-    constructor(name, image, type, money) {
+    constructor(name, image, type, money, descriptions) {
         this.name = name;
         this.image = image;
 
         this.type = type;
         this.money = money;
+        this.descriptions = descriptions;
 
         this.view = new View();
         this.updateView();
@@ -31,9 +32,9 @@ class Card {
 Card.prototype.updateView = function () {
     this.view.updateData({
         name: this.name,
-        descriptions: this.type,
+        descriptions: this.descriptions,
         image: this.image,
-        money:this.money
+        money: this.money
     });
 };
 
@@ -44,8 +45,7 @@ class Ability extends Card {
 class Attack extends Ability {
     constructor(attack, money) {
         super("Фаербол", '../image/fireball.png',
-            'attack', money);
-        this.attack = attack;
+            'attack', money, attack);
     }
 }
 
@@ -53,7 +53,7 @@ class Attack extends Ability {
 class Heal extends Ability {
     constructor(heal, money) {
         super("Помощь с небес", '../image/aid.png',
-            'heal', money);
+            'heal', money, heal);
         this.heal = heal;
     }
 }
@@ -62,7 +62,7 @@ class Heal extends Ability {
 class Shield extends Ability {
     constructor(shield, money) {
         super("Эгида", '../image/shield.png',
-            'shield', money);
+            'shield', money, shield);
         this.shield = shield;
     }
 }
@@ -70,6 +70,6 @@ class Shield extends Ability {
 class Money extends Ability {
     constructor(money) {
         super("Чудный мешок", '../image/money2.png',
-            'money', money);
+            'money', money, null);
     }
 }

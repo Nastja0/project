@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="../style/styles-start.css">
     <link rel="stylesheet" href="../style/styles-player.css">
     <link rel="stylesheet" href="../style/style-field.css">
-    <link rel="stylesheet" href="../style/styles-set-cards.css"/>
     <link rel="stylesheet" href="../style/styles-modal.css"/>
     <link rel="stylesheet" href="../style/style-card.css"/>
+    <link rel="stylesheet" href="../style/style_inventory.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -34,48 +34,33 @@
         <progress class="shield" style="display: none"></progress>
     </div>
 
+    <!--инвентарь-->
+    <div class="modal" id="inventory" style="display: none">
+        <h1 class="name-game"></h1>
+        <div class="inventory"></div>
+    </div>
+    <img src="../image/inventory.png" class="inventoryImg" style="display: none">
+
     <!--карта-->
     <div id="map" class="field" style="display: none">
     </div>
 
     <!--модальное окно с первоначальным набором карт-->
+    <!--модальное окно с "сундуком"-->
     <div class="modal" id="set-cards" style="display: none">
         <h1 class="name-game"></h1>
         <div class="set-cards"></div>
     </div>
 
     <!--модальное окно с "сундуком"-->
-    <div class="modal" id="new-card" style="display: none">
-        <h1 class="name-game">Выберите одну новую карту</h1>
-        <div class="carts">
-            <div class="cart"></div>
-            <div class="cart"></div>
-            <div class="cart"></div>
-        </div>
-        <button type="button" class="button-add">Добавить</button>
+    <div class="modal" id="inventory" style="display: none">
+        <h1 class="name-game">Инвентарь</h1>
+        <div class="set-cards"></div>
     </div>
 
     <!--модальное окно для игры-->
     <div class="modal" id="game" style="display: none">
-        <div class="carts">
-            <div class="cart opponents"></div>
-            <div class="cart opponents"></div>
-            <div class="cart opponents"></div>
-        </div>
-        <div class="carts gamess">
-            <div class="cart games"></div>
-            <div class="cart games"></div>
-        </div>
-        <div class="carts">
-            <div class="cart players"></div>
-            <div class="cart players"></div>
-            <div class="cart players"></div>
-            <div class="cart players"></div>
-            <div class="cart players"></div>
-            <div class="cart players"></div>
-            <div class="cart players"></div>
-            <div class="cart players"></div>
-        </div>
+
     </div>
 
     <!--шаблоны-->
@@ -106,5 +91,6 @@
 <script src="../scripts/Card.js" type="module"></script>
 <script src="../scripts/CardView.js" type="module"></script>
 <script src="../scripts/SetCardsView.js" type="module"></script>
+<script src="../scripts/InventoryView.js" type="module"></script>
 </body>
 </html>
