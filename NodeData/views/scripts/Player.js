@@ -67,6 +67,6 @@ export default class Player {
 
     //обновление денег
     changing_money() {
-        document.getElementById('player').querySelector('.money').textContent = this.money;
+        document.getElementById('player').querySelector('.count-money').textContent = this.money;
     }
 }

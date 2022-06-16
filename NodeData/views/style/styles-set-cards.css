@@ -2,10 +2,10 @@
     font-size: 3.5vw;
 }
 
-.carts{
+.set-cards{
     width: 85%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .cart{
@@ -13,8 +13,6 @@
     height: 200px;
     background-image: url("../image/card.png");
     background-size: 100% 100%;
-
-
     margin-bottom: 4%;
 }
 
