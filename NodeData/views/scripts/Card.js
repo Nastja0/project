@@ -69,7 +69,7 @@ class Shield extends Ability {
 
 class Money extends Ability {
     constructor(money) {
-        super("Чудный мешок", '../image/money2.png',
+        super("Чудный мешок", '../image/money.png',
             'money', money, null);
     }
 }
