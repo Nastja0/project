@@ -1,5 +1,5 @@
 import {default as View} from './CardView.js';
-const type_card = ['attack', 'heal', 'shield', 'money','enemy'];
+const type_card = ['attack', 'heal', 'shield', 'money'  ];
 
 export default function creat_rand_card(type = type_card[Math.floor(Math.random() * type_card.length)]) {
     switch (type) {
