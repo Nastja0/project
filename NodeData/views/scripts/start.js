@@ -2,7 +2,7 @@ import Player from "./Player.js";
 import {add_cards, SetCardsView} from './SetCardsView.js';
 import {exit_inventory, get_inventory, InventoryView} from './InventoryView.js';
 
-let player;
+export let player;
 let inventory;
 let numbInv = 0;
 
@@ -31,7 +31,7 @@ function start_game() {
             document_arena.style.display = 'none';
 
             creat_inventory();
-            start_set_cards(1);
+            start_set_cards(7);
         }
     });
 }

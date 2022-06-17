@@ -42,7 +42,15 @@
     width: 85%;
     height: 33%;
     bottom: 10%;
-    display: inline-block;
-    background-image: url("../image/card.png");
-    background-size: 20% 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(160px,1fr));
+    /* Это вертикальный скролл
+     overflow: auto;*/
+    /*это горизонтальный*/
+    grid-auto-flow: column;
+    overflow-x: auto;
+}
+/*Убирает слайдбар*/
+.playerZone::-webkit-scrollbar {
+    width: 0;
 }
