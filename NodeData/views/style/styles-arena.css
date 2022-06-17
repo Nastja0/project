@@ -1,0 +1,48 @@
+.enemyPic{
+    width: 180px;
+    height: 225px;
+    display: block;
+    margin: auto auto;
+}
+.enemyPicBlock {
+    width: 200px;
+    height: 250px;
+    display: flex;
+    position: absolute;
+    top: 2%;
+    right: 5%;
+    background-image: url("../image/enemyBack.png");
+    background-size: 100% 100%;
+    background-position: center;
+}
+.enemyCardsBlock {
+    width: 200px;
+    height: 250px;
+    position: absolute;
+    top: 2%;
+    left: 5%;
+}
+.enemyCards {
+    width: 170px;
+    height: 280px;
+    display: block;
+    margin: auto auto;
+}
+.arenaField{
+    position: absolute;
+    width:170px;
+    height: 280px;
+    top: 20%;
+    display: block;
+    background-image: url("../image/card.png");
+    background-size: 100% 100%;
+}
+.playerZone{
+    position: absolute;
+    width: 85%;
+    height: 33%;
+    bottom: 10%;
+    display: inline-block;
+    background-image: url("../image/card.png");
+    background-size: 20% 100%;
+}

@@ -1,6 +1,5 @@
 import {default as View} from './CardView.js';
-
-const type_card = ['attack', 'heal', 'shield', 'money'];
+const type_card = ['attack', 'heal', 'shield', 'money','enemy'];
 
 export default function creat_rand_card(type = type_card[Math.floor(Math.random() * type_card.length)]) {
     switch (type) {
@@ -71,5 +70,11 @@ class Money extends Ability {
     constructor(money) {
         super("Чудный мешок", '../image/money.png',
             'money', money, null);
+    }
+}
+export class Enemy extends Ability {
+    constructor(enemy) {
+        super(enemy.name, enemy.image,
+            '', '', null);
     }
 }

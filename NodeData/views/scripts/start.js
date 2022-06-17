@@ -27,8 +27,11 @@ function start_game() {
             const document_map = document.getElementById('map');
             document_map.style.display = 'flex';
 
+            const document_arena = document.getElementById('arena');
+            document_arena.style.display = 'none';
+
             creat_inventory();
-            start_set_cards(5   );
+            start_set_cards(1);
         }
     });
 }
