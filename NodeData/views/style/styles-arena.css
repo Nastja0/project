@@ -1,12 +1,12 @@
 .enemyPic{
-    width: 180px;
-    height: 225px;
+    width: 160px;
+    height: 205px;
     display: block;
     margin: auto auto;
 }
 .enemyPicBlock {
-    width: 200px;
-    height: 250px;
+    width: 180px;
+    height: 230px;
     display: flex;
     position: absolute;
     top: 2%;
