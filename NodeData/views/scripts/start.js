@@ -2,7 +2,7 @@ import Player from "./Player.js";
 import {add_cards, SetCardsView} from './SetCardsView.js';
 import {exit_inventory, get_inventory, InventoryView} from './InventoryView.js';
 
-let player;
+export let player;
 let inventory;
 let numbInv = 0;
 
@@ -10,7 +10,7 @@ start_game();
 
 //начало игры
 function start_game() {
-    console.log("fdsgbnm")
+    console.log("game started")//"fdsgbnm"
     const document_start = document.getElementById('start');
     const document_button_start = document_start.querySelector(".button-start");
 
@@ -27,8 +27,11 @@ function start_game() {
             const document_map = document.getElementById('map');
             document_map.style.display = 'flex';
 
+            const document_arena = document.getElementById('arena');
+            document_arena.style.display = 'none';
+
             creat_inventory();
-            start_set_cards(10);
+            start_set_cards(7);
         }
     });
 }

@@ -22,7 +22,7 @@ const add_cards = function (set_cards, player) {
         let card = creat_rand_card();
         card.view.card.addEventListener('click', function () {
             document.getElementById('set-cards').querySelector('.set-cards').innerHTML = '';
-            player.receiving(card);
+                player.receiving(card);
             set_cards.number += 1;
             if (set_cards.number < set_cards.max_number) {
                 add_cards(set_cards, player);

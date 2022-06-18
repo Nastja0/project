@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../style/styles-modal.css"/>
     <link rel="stylesheet" href="../style/style-card.css"/>
     <link rel="stylesheet" href="../style/style_inventory.css"/>
+    <link rel="stylesheet" href="../style/styles-gpaph-items.css"/>
+    <link rel="stylesheet" href="../style/styles-arena.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -24,7 +26,7 @@
     </div>
 
     <!--информация об игроке-->
-    <div id="player" class="player" style="display: none">
+    <div id="player" class="player" inventory="[]" style="display: none">
         <h1 class="name"></h1>
         <div class="money">
             <img src="../image/money.png" height="20px">
@@ -32,6 +34,15 @@
         </div>
         <progress class="lives" max="100" value="40"></progress>
         <progress class="shield" style="display: none"></progress>
+    </div>
+
+    <!--Арена-->
+    <div class="modal" id="arena" style="display: none">
+        <h1 class="name-game"></h1>
+        <div class="enemyPicBlock"><img class="enemyPic" src="" alt=""></div>
+        <div class="enemyCardsBlock"><img class="enemyCards" src="../image/cardStack.png" alt=""></div>
+        <div class="arenaField"></div>
+        <div class="playerZone"></div>
     </div>
 
     <!--инвентарь-->
@@ -43,6 +54,133 @@
 
     <!--карта-->
     <div id="map" class="field" style="display: none">
+        <svg viewBox="770 170 560 560" width="512" height="512"  xmlns="http://www.w3.org/2000/svg" >
+            <g>
+                <path d="M 900 500L 900 235.0006103515625" stroke="#000000" fill="transparent" stroke-width="2"></path>
+                <path transform="translate(900 235.0006103515625) rotate(-90)" d="M-1, -5 L 14 0 L -1, 5 z" fill="#000000"></path>
+                <text class="edge" transform="translate(900 350) rotate(-90)" fill="#000000" x="0" y="-5"
+                      dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+                <path d="M 1000 700L 924.7467041015625 624.7467041015625" stroke="#000000" fill="transparent"
+                      stroke-width="2"></path>
+                <path transform="translate(924.7467041015625 624.7467041015625) rotate(-135)" d="M-1, -5 L 14 0 L -1, 5 z"
+                      fill="#000000"></path>
+                <text class="edge" transform="translate(950 650) rotate(45)" fill="#000000" x="0" y="-5"
+                      dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+                <path d="M 900 600L 975.2532958984375 524.7467041015625" stroke="#000000" fill="transparent"
+                      stroke-width="2"></path>
+                <path transform="translate(975.2532958984375 524.7467041015625) rotate(-45)" d="M-1, -5 L 14 0 L -1, 5 z"
+                      fill="#000000"></path>
+                <text class="edge" transform="translate(950 550) rotate(-45)" fill="#000000" x="0" y="-5"
+                      dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+                <path d="M 900 600L 900 535.0006103515625" stroke="#000000" fill="transparent" stroke-width="2"></path>
+                <path transform="translate(900 535.0006103515625) rotate(-90)" d="M-1, -5 L 14 0 L -1, 5 z" fill="#000000"></path>
+                <text class="edge" transform="translate(900 550) rotate(-90)" fill="#000000" x="0" y="-5"
+                      dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+                <path d="M 900 600L 824.7467041015625 524.7467041015625" stroke="#000000" fill="transparent"
+                      stroke-width="2"></path>
+                <path transform="translate(824.7467041015625 524.7467041015625) rotate(-135)" d="M-1, -5 L 14 0 L -1, 5 z"
+                      fill="#000000"></path>
+                <text class="edge" transform="translate(850 550) rotate(45)" fill="#000000" x="0" y="-5"
+                      dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+                <path d="M 1000 700L 1075.2532958984375 624.7467041015625" stroke="#000000" fill="transparent"
+                      stroke-width="2"></path>
+                <path transform="translate(1075.2532958984375 624.7467041015625) rotate(-45)" d="M-1, -5 L 14 0 L -1, 5 z"
+                      fill="#000000"></path>
+                <text class="edge" transform="translate(1050 650) rotate(-45)" fill="#000000" x="0" y="-5"
+                      dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+                <path d="M 1100 600L 1175.2532958984375 524.7467041015625" stroke="#000000" fill="transparent"
+                      stroke-width="2"></path>
+                <path transform="translate(1175.2532958984375 524.7467041015625) rotate(-45)" d="M-1, -5 L 14 0 L -1, 5 z"
+                      fill="#000000"></path>
+                <text class="edge" transform="translate(1150 550) rotate(-45)" fill="#000000" x="0" y="-5"
+                      dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+                <path d="M 1200 500L 1124.7467041015625 424.7467041015625" stroke="#000000" fill="transparent"
+                      stroke-width="2"></path>
+                <path transform="translate(1124.7467041015625 424.7467041015625) rotate(-135)" d="M-1, -5 L 14 0 L -1, 5 z"
+                      fill="#000000"></path>
+                <text class="edge" transform="translate(1150 450) rotate(45)" fill="#000000" x="0" y="-5"
+                      dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+                <path d="M 1200 500L 1275.2532958984375 424.7467041015625" stroke="#000000" fill="transparent"
+                      stroke-width="2"></path>
+                <path transform="translate(1275.2532958984375 424.7467041015625) rotate(-45)" d="M-1, -5 L 14 0 L -1, 5 z"
+                      fill="#000000"></path>
+                <text class="edge" transform="translate(1250 450) rotate(-45)" fill="#000000" x="0" y="-5"
+                      dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+                <path d="M 1100 400L 1175.2532958984375 324.7467041015625" stroke="#000000" fill="transparent"
+                      stroke-width="2"></path>
+                <path transform="translate(1175.2532958984375 324.7467041015625) rotate(-45)" d="M-1, -5 L 14 0 L -1, 5 z"
+                      fill="#000000"></path>
+                <text class="edge" transform="translate(1150 350) rotate(-45)" fill="#000000" x="0" y="-5"
+                      dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+                <path d="M 1300 400L 1224.7467041015625 324.7467041015625" stroke="#000000" fill="transparent"
+                      stroke-width="2"></path>
+                <path transform="translate(1224.7467041015625 324.7467041015625) rotate(-135)" d="M-1, -5 L 14 0 L -1, 5 z"
+                      fill="#000000"></path>
+                <text class="edge" transform="translate(1250 350) rotate(45)" fill="#000000" x="0" y="-5"
+                      dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+                <path d="M 1200 300L 933.2061767578125 211.0687255859375" stroke="#000000" fill="transparent"
+                      stroke-width="2"></path>
+                <path transform="translate(933.2061767578125 211.0687255859375) rotate(-161.56505117707798)"
+                      d="M-1, -5 L 14 0 L -1, 5 z" fill="#000000"></path>
+                <text class="edge" transform="translate(1050 250) rotate(18.434948822922006)" fill="#000000" x="0" y="-5"
+                      dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+                <path d="M 800 500L 888.9312744140625 233.2061767578125" stroke="#000000" fill="transparent"
+                      stroke-width="2"></path>
+                <path transform="translate(888.9312744140625 233.2061767578125) rotate(-71.56505117707799)"
+                      d="M-1, -5 L 14 0 L -1, 5 z" fill="#000000"></path>
+                <text class="edge" transform="translate(850 350) rotate(-71.56505117707799)" fill="#000000" x="0" y="-5"
+                      dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+                <path d="M 1000 500L 911.0687255859375 233.2061767578125" stroke="#000000" fill="transparent"stroke-width="2"></path>
+                <path transform="translate(911.0687255859375 233.2061767578125) rotate(-108.43494882292201)"
+                      d="M-1, -5 L 14 0 L -1, 5 z" fill="#000000"></path>
+                <text class="edge" transform="translate(950 350) rotate(71.56505117707799)" fill="#000000" x="0" y="-5"
+                      dominant-baseline="text-bottom" text-anchor="middle" font-size="18px"></text>
+            </g>
+            <g class="vertex" id="1" nextid = ['2','3'] type = "enemy" enemy="salamandra">
+                <circle cx="1000" cy="700" class="gpaphCircles"/>
+                <text x="1000" y="700" class="gpaphFonts">Lava</text>
+            </g>
+            <g class="vertex" id="2" nextid = ['7'] type="Chest">
+                <circle cx="1100" cy="600" class="gpaphCircles"/>
+                <text x="1100" y="600" class="gpaphFonts">Chest</text>
+            </g>
+            <g class="vertex" id="3" nextid=['4','5','6'] type="enemy" enemy="gigler">
+                <circle cx="900" cy="600" class="gpaphCircles" />
+                <text x="900" y="600" class="gpaphFonts">Grass</text>
+            </g>
+            <g class="vertex" id="4" nextid=['11']>
+                <circle cx="800" cy="500" class="gpaphCircles" type="Chest"/>
+                <text x="800" y="500" class="gpaphFonts">Chest</text>
+            </g>
+            <g class="vertex" id="5" nextid=['11'] type="enemy" enemy ="woodlouse">
+                <circle cx="900" cy="500" class="gpaphCircles" />
+                <text x="900" y="500" class="gpaphFonts">Desert</text>
+            </g>
+            <g class="vertex" id="6" nextid=['11'] type="Shop">
+                <circle cx="1000" cy="500" class="gpaphCircles" />
+                <text x="1000" y="500" class="gpaphFonts">Shop</text>
+            </g>
+            <g class="vertex" id="7" nextid=['8','9']  type="enemy" enemy ="demonGigler">
+                <circle cx="1200" cy="500" class="gpaphCircles"/>
+                <text x="1200" y="500" class="gpaphFonts">Edge</text>
+            </g>
+            <g class="vertex" id="8" nextid=['10'] type="Shop">
+                <circle cx="1100" cy="400" class="gpaphCircles"  />
+                <text x="1100" y="400" class="gpaphFonts">Shop</text>
+            </g>
+            <g class="vertex" id="9" nextid=['10'] type="enemy" enemy ="demonMonkey">
+                <circle cx="1300" cy="400" class="gpaphCircles" />
+                <text x="1300" y="400" class="gpaphFonts">Abyss</text>
+            </g>
+            <g class="vertex" id="10" nextid=['11'] type="Chest">
+                <circle cx="1200" cy="300" class="gpaphCircles" />
+                <text x="1200" y="300" class="gpaphFonts">Chest</text>
+            </g>
+            <g class="vertex" id="11" nextid=['itsEnd'] type="enemy" enemy ="demonSalamandra">
+                <circle cx="900" cy="200" class="gpaphCircles" />
+                <text x="900" y="200" class="gpaphFonts">Hell</text>
+            </g>
+        </svg>
     </div>
 
     <!--модальное окно с первоначальным набором карт-->
@@ -92,5 +230,6 @@
 <script src="../scripts/CardView.js" type="module"></script>
 <script src="../scripts/SetCardsView.js" type="module"></script>
 <script src="../scripts/InventoryView.js" type="module"></script>
+<script src="../scripts/Map.js" type="module"></script>
 </body>
 </html>

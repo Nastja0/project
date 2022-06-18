@@ -1,0 +1,56 @@
+.enemyPic{
+    width: 160px;
+    height: 205px;
+    display: block;
+    margin: auto auto;
+}
+.enemyPicBlock {
+    width: 180px;
+    height: 230px;
+    display: flex;
+    position: absolute;
+    top: 2%;
+    right: 5%;
+    background-image: url("../image/enemyBack.png");
+    background-size: 100% 100%;
+    background-position: center;
+}
+.enemyCardsBlock {
+    width: 200px;
+    height: 250px;
+    position: absolute;
+    top: 2%;
+    left: 5%;
+}
+.enemyCards {
+    width: 170px;
+    height: 280px;
+    display: block;
+    margin: auto auto;
+}
+.arenaField{
+    position: absolute;
+    width:170px;
+    height: 280px;
+    top: 20%;
+    display: block;
+    background-image: url("../image/card.png");
+    background-size: 100% 100%;
+}
+.playerZone{
+    position: absolute;
+    width: 85%;
+    height: 33%;
+    bottom: 10%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(160px,1fr));
+    /* Это вертикальный скролл
+     overflow: auto;*/
+    /*это горизонтальный*/
+    grid-auto-flow: column;
+    overflow-x: auto;
+}
+/*Убирает слайдбар*/
+.playerZone::-webkit-scrollbar {
+    width: 0;
+}
