@@ -6,15 +6,18 @@ export default class Arena {
         this.arena = this.modal.querySelector('.arena');
     }
 }
-makeScrollBeautiful();
+makeScrollBeautiful('.playerZone');
+makeScrollBeautiful('.enemyCardsBlock');
 let enter_arena = function (arena, player, enemy) {
+    document.getElementById('inventory').setAttribute('display','none');//не работает
     arena.modal.style.display = 'flex';
     arena.modal.getElementsByClassName('enemyPicBlock')
         .item(0).getElementsByTagName('img').item(0).src=enemy.image;
     for (let card of player.inventory) {
-        card.view.putInSet(arena.modal.querySelector('.playerZone'), 160, 240);
+            card.view.putInSet(arena.modal.querySelector('.playerZone'), 160, 240);
+            card.view.putInSetBack(arena.modal.querySelector('.enemyCardsBlock'), 130, 140);
     }
-    //setTimeout(exit_arena,1000,arena);
+    //setTimeout(exit_arena,1000,arena); // это прост чтоб пока смотреть другие арены
 }
 
 
@@ -22,19 +25,15 @@ let exit_arena = function (arena) {
     // arena.arena.innerHTML = '';
     arena.modal.style.display = 'none';
 }
-let made_enemy =  function createFromTemplate() {
-    const cardTemplate = document.getElementById('cardTemplate');
-    return cardTemplate.cloneNode(true);
-}
 export {enter_arena,exit_arena, Arena};
 
-function makeScrollBeautiful(){
+function makeScrollBeautiful(selector='.playerZone'){
 
     let isDown = false;
     let startX;
     let scrollLeft;
 
-    const slider = document.querySelector('.playerZone');
+    const slider = document.querySelector(selector);
     slider.addEventListener("wheel", (evt) => {
         evt.preventDefault();
         slider.scrollLeft += evt.deltaY;

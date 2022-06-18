@@ -41,16 +41,16 @@ class Ability extends Card {
 }
 
 //атака
-class Attack extends Ability {
-    constructor(attack, money) {
+export class Attack extends Ability {
+    constructor(attack=10, money=3) {
         super("Фаербол", '../image/fireball.png',
             'attack', money, attack);
     }
 }
 
 //лечение
-class Heal extends Ability {
-    constructor(heal, money) {
+export class Heal extends Ability {
+    constructor(heal=15, money=3) {
         super("Помощь с небес", '../image/aid.png',
             'heal', money, heal);
         this.heal = heal;
@@ -58,23 +58,17 @@ class Heal extends Ability {
 }
 
 //щит
-class Shield extends Ability {
-    constructor(shield, money) {
+export class Shield extends Ability {
+    constructor(shield=30, money=3) {
         super("Эгида", '../image/shield.png',
             'shield', money, shield);
         this.shield = shield;
     }
 }
 
-class Money extends Ability {
+export class Money extends Ability {
     constructor(money) {
         super("Чудный мешок", '../image/money.png',
             'money', money, null);
-    }
-}
-export class Enemy extends Ability {
-    constructor(enemy) {
-        super(enemy.name, enemy.image,
-            '', '', null);
     }
 }

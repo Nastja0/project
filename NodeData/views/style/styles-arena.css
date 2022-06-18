@@ -15,33 +15,43 @@
     background-size: 100% 100%;
     background-position: center;
 }
-.enemyCardsBlock {
+/*.enemyCardsBlock {
     width: 200px;
     height: 250px;
     position: absolute;
     top: 2%;
     left: 5%;
 }
-.enemyCards {
-    width: 170px;
-    height: 280px;
-    display: block;
-    margin: auto auto;
+*/
+.enemyCardsBlock{
+    position: absolute;
+    width: 45%;
+    height: 160px;
+    top: 12.5%;
+    left: 27.5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(160px,1fr));
+    /* Это вертикальный скролл
+     overflow: auto;*/
+    /*это горизонтальный*/
+    grid-auto-flow: column;
+    overflow-x: auto;
 }
 .arenaField{
     position: absolute;
-    width:170px;
-    height: 280px;
-    top: 20%;
+    width:160px;
+    height: 240px;
+    top: 31.5%;
     display: block;
     background-image: url("../image/card.png");
     background-size: 100% 100%;
 }
 .playerZone{
     position: absolute;
-    width: 85%;
+    width: 45%;
     height: 33%;
-    bottom: 10%;
+    bottom: 4%;
+    left: 27.5%;
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(160px,1fr));
     /* Это вертикальный скролл
@@ -52,5 +62,8 @@
 }
 /*Убирает слайдбар*/
 .playerZone::-webkit-scrollbar {
+    width: 0;
+}
+.enemyCardsBlock::-webkit-scrollbar {
     width: 0;
 }
