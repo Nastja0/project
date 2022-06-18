@@ -1,6 +1,7 @@
 import Player from "./Player.js";
 import {add_cards, SetCardsView} from './SetCardsView.js';
 import {exit_inventory, get_inventory, InventoryView} from './InventoryView.js';
+import {ShopView, get_shop, exit_shop} from "./ShopView.js";
 
 export let player;
 let inventory;
@@ -58,6 +59,8 @@ function choice_inventory() {
         get_inventory(inventory, player);
     } else {
         exit_inventory(inventory);
+        let t = new ShopView();
+        get_shop(t);
     }
     numbInv = (numbInv + 1) % 2;
 }

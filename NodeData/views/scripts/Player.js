@@ -11,10 +11,9 @@ export default class Player {
     }
 
 
-
     //получение урона
     damage(lives) {
-        if(this.shieldLifeTime !== 0)
+        if (this.shieldLifeTime !== 0)
             this.defence(lives);
         if (this.lives >= lives) {
             this.lives -= lives;
@@ -31,30 +30,32 @@ export default class Player {
         return true;
     }
 
-    defence(damage){
+    defence(damage) {
         let delta = this.shield - damage;
-        if(delta > 0){
-            this.shield -=damage;
-            this.shieldLifeTime-=1;
-        }
-        else{
+        if (delta > 0) {
+            this.shield -= damage;
+            this.shieldLifeTime -= 1;
+        } else {
             this.shield = 0;
-            this.shieldLifeTime=0;
+            this.shieldLifeTime = 0;
             this.damage(-delta);
         }
     }
 
-    pickUpShild(shield,lifetime){
+    pickUpShild(shield, lifetime) {
         this.shield = shield;
         this.shieldLifeTime = lifetime;
     }
 
     //покупка карты
     purchase(card) {
+
         if (this.money >= card.money) {
-            this.money -= card.money;
-            this.changing_money();
-            this.inventory.push(card);
+            if (card.type !== 'money') {
+                this.money -= card.money;
+                this.changing_money();
+                this.inventory.push(card);
+            }
             return true;
         }
         return false;
