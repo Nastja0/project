@@ -20,16 +20,19 @@ SetCardsView.prototype.updateData = function (name, number) {
 const add_cards = function (set_cards, player) {
     for (let number_two = 0; number_two < 2; number_two++) {
         let card = creat_rand_card();
-        card.view.card.addEventListener('click', function () {
+
+        let f = function () {
             document.getElementById('set-cards').querySelector('.set-cards').innerHTML = '';
-                player.receiving(card);
+            player.receiving(card);
             set_cards.number += 1;
+            card.view.card.removeEventListener('click', f);
             if (set_cards.number < set_cards.max_number) {
                 add_cards(set_cards, player);
             } else {
                 document.getElementById('set-cards').style.display = 'none';
             }
-        })
+        };
+        card.view.card.addEventListener('click', f);
         card.view.putInSet(set_cards.set_cards);
     }
 }

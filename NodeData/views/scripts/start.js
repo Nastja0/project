@@ -31,7 +31,7 @@ function start_game() {
             document_arena.style.display = 'none';
 
             creat_inventory();
-            start_set_cards(7);
+            start_set_cards(5);
         }
     });
 }

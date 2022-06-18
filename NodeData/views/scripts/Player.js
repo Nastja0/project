@@ -50,6 +50,7 @@ export default class Player {
     //продажа карты
     income(card) {
         let del_card = this.inventory.indexOf(card);
+        console.log(this.inventory);
         this.inventory.splice(del_card, -1);
         this.money += card.money;
         return true;
@@ -69,4 +70,12 @@ export default class Player {
     changing_money() {
         document.getElementById('player').querySelector('.count-money').textContent = this.money;
     }
+}
+
+Player.prototype.income = function (card) {
+    let del_card = this.inventory.indexOf(card);
+    console.log(this.inventory);
+    this.inventory.splice(del_card, -1);
+    this.money += card.money;
+    return true;
 }

@@ -1,3 +1,5 @@
+import {player} from "./start.js";
+
 class InventoryView {
     constructor() {
         this.modal = document.getElementById('inventory');
@@ -9,10 +11,13 @@ class InventoryView {
     }
 }
 
-let get_inventory = function (inventory, player) {
+let get_inventory = function (inventory) {
     inventory.modal.style.display = 'flex';
-    console.log(inventory.modal)
     for (let card of player.inventory) {
+        let f = new function (){
+            player.income(card);
+        }
+        card.view.card.addEventListener('click', f);
         card.view.putInSet(inventory.inventory, 160, 240);
     }
 }
