@@ -20,16 +20,19 @@ export default function CreateEnemy(enemyName){
 class Enemy {
     constructor(name, img) {
         this.name = name;
+        this.image = img;
         this.lives = 100;
         this.money = 0;
+        this.shield = 0;
+        this.shieldLifeTime = 0;
         this.inventory = [];
-        this.image = img;
-        this.changing_money();
         this.changing_lives();
     }
 
     //получение урона
     damage(lives) {
+        if(this.shieldLifeTime !== 0)
+            this.defence(lives);
         if (this.lives >= lives) {
             this.lives -= lives;
             this.changing_lives();
@@ -45,21 +48,32 @@ class Enemy {
         return true;
     }
 
-    //конец игры
-    game_over() {
-        return "Game over";
+    defence(damage){
+        let delta = this.shield - damage;
+        if(delta > 0){
+            this.shield -=damage;
+            this.shieldLifeTime-=1;
+        }
+        else{
+            this.shield = 0;
+            this.shieldLifeTime=0;
+            this.damage(-delta);
+        }
     }
 
+    pickUpShild(shield,lifetime){
+        this.shield = shield;
+        this.shieldLifeTime = lifetime;
+    }
     //обновление жизней
     changing_lives() {
         document.getElementById('player').querySelector('.lives').value = this.lives;
     }
-
-    //обновление денег
-    changing_money() {
-        document.getElementById('player').querySelector('.count-money').textContent = this.money;
+    game_over() {
+        return "Game over";
     }
 }
+
 
 class DemonGigler extends Enemy{
     constructor() {
@@ -88,7 +102,8 @@ class Gigler extends Enemy{
 class Salamandra extends Enemy{
     constructor() {
         super('salamandra',`../image/salamandra.png`);
-        this.inventory = [new Attack(),new Attack(), new Heal(), new Shield()];
+        this.money = 100;
+        this.inventory = [new Shield()];
     }
 }
 class WoodLouse extends Enemy{

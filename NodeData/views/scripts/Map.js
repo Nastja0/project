@@ -5,6 +5,7 @@ const leveltree =document.querySelectorAll('.vertex');
 let allowedNodes = ['1']
 leveltree.forEach(el => {
     el.addEventListener("click", (e)=>{
+        console.log('qweqweqwe')
         let node = el;
         let id = node.getAttribute('id');
         if (allowedNodes.indexOf(id) === -1)

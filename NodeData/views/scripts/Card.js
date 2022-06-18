@@ -59,10 +59,11 @@ export class Heal extends Ability {
 
 //щит
 export class Shield extends Ability {
-    constructor(shield=30, money=3) {
+    constructor(shield=30,lifetime = 3, money=3) {
         super("Эгида", '../image/shield.png',
             'shield', money, shield);
         this.shield = shield;
+        this.shieldLifeTime=lifetime;
     }
 }
 
