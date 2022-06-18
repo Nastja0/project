@@ -19,7 +19,6 @@ class Card {
     constructor(name, image, type, money, descriptions) {
         this.name = name;
         this.image = image;
-
         this.type = type;
         this.money = money;
         this.descriptions = descriptions;

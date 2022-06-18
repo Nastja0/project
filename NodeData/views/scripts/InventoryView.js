@@ -14,15 +14,15 @@ class InventoryView {
 let get_inventory = function (inventory) {
     inventory.modal.style.display = 'flex';
     for (let card of player.inventory) {
-        let f = new function (){
-            player.income(card);
-        }
-        card.view.card.addEventListener('click', f);
+        card.view.card.addEventListener('click', () => {player.income(card)});
         card.view.putInSet(inventory.inventory, 160, 240);
     }
 }
 
 let exit_inventory = function (inventory) {
+    for (let card of player.inventory) {
+        card.view.card.removeEventListener('click', () => {player.income(card)});
+    }
     inventory.inventory.innerHTML = '';
     inventory.modal.style.display = 'none';
 }
