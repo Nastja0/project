@@ -1,3 +1,5 @@
+import StartBattle from "./batlleProcess.js";
+
 export default class Arena {
     constructor() {
         this.modal = document.getElementById('arena');
@@ -17,7 +19,15 @@ let enter_arena = function (arena, player, enemy) {
             card.view.putInSet(arena.modal.querySelector('.playerZone'), 160, 240);
             card.view.putInSetBack(arena.modal.querySelector('.enemyCardsBlock'), 130, 140);
     }
-    //setTimeout(exit_arena,1000,arena); // это прост чтоб пока смотреть другие арены
+    let status = StartBattle(arena,player,enemy);
+    if (status === 'Player Win'){
+        player.money += enemy.money;
+        player.changing_money(enemy.money);
+        console.log('Win')
+    }
+    else
+        console.log('Loose');
+    setTimeout(exit_arena,1000,arena); // это прост чтоб пока смотреть другие арены
 }
 
 
