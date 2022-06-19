@@ -1,6 +1,6 @@
 import {inventory} from "./start.js";
 import {hide_inventory, show_inventory} from './InventoryView.js'
-var localHandler;
+let cardHandlers = [];
 export default class Arena {
     constructor(player, enemy) {
         this.modal = document.getElementById('arena');
@@ -23,7 +23,8 @@ export default class Arena {
         this.modal.getElementsByClassName('enemyPicBlock')
     .item(0).getElementsByTagName('img').item(0).src = this.enemy.image;
         for (let card of this.player.inventory) {
-            localHandler = cardHandler.bind(this,card,true);
+            let localHandler = cardHandler.bind(this,card,true);
+            cardHandlers.push(localHandler);
             card.view.card.addEventListener('click',localHandler);
             card.view.putInSet(this.modal.querySelector('.playerZone'), 15);
         }
@@ -37,9 +38,9 @@ export default class Arena {
     exit_arena = function () {
         // arena.arena.innerHTML = '';
         for (let card of this.player.inventory) {
-            card.view.card.removeEventListener('click',cardHandler);
-            card.view.card.removeEventListener('click',localHandler);
-            console.log(card.view.card);
+            for (let handler of cardHandlers){
+                card.view.card.removeEventListener('click',handler);
+            }
         }
         this.modal.style.display = 'none';
         this.state = new PlayerTurnState(this);
