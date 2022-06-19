@@ -5,13 +5,16 @@ const type_card = ['attack', 'heal', 'shield', 'money'  ];
 export default function creat_rand_card(type = type_card[Math.floor(Math.random() * type_card.length)]) {
     switch (type) {
         case 'attack':
-            return new Attack(10, 5);
+            let stat1 = randomize(attackValue)
+            return new Attack(stat1[0], stat1[1]);
         case 'heal':
-            return new Heal(10, 5);
+            let stat2 = randomize(heelValue)
+            return new Heal(stat2[0], stat2[1]);
         case 'shield':
-            return new Shield(10, 5);
+            let stat3 = randomize(shieldValue)
+            return new Shield(stat3[0], stat3[1]);
         case 'money':
-            return new Money(10);
+            return new Money(Math.floor(Math.random()*15) + 5);
     }
 }
 
@@ -74,3 +77,28 @@ export class Money extends Ability {
             'money', money, null);
     }
 }
+
+let attackValue = {
+    15: 3,
+    25: 5,
+    35: 7,
+    40: 9
+};
+let shieldValue = {
+    20: 4,
+    30: 6,
+    40: 8,
+    45: 9
+};
+let heelValue = {
+    15: 4,
+    25: 7,
+    35: 9,
+    40: 11
+};
+
+let randomize = function (obj) {
+    let keys = Object.keys(obj);
+    let key = keys[ keys.length * Math.random() << 0];
+    return [Number(key), Number(obj[key])];
+};
