@@ -59,8 +59,21 @@ function choice_inventory() {
         get_inventory(inventory, player);
     } else {
         exit_inventory(inventory);
-        let t = new ShopView();
-        get_shop(t);
     }
     numbInv = (numbInv + 1) % 2;
 }
+
+
+/*открытие магазина
+let t = new ShopView();
+get_shop(t);
+*/
+
+
+/*открытие сундука
+сюда функцию закрытия инвентаря
+
+start_set_cards(1);
+сюда функцию отображение инвентаря
+*/
+

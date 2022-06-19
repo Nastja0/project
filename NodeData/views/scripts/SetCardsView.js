@@ -9,6 +9,7 @@ class SetCardsView {
         this.number = 0;
         this.max_number = 0;
         this.updateData(name, number);
+
     }
 }
 
