@@ -204,17 +204,7 @@ class Salamandra extends Enemy{
         this.lives = 70;
         this.inventory = [
             new Attack(10),
-            new Attack(15),
-            new Attack(12),
-            new Attack(10),
-            new Attack(15),
-            new Attack(12),
-            new Attack(10),
-            new Attack(15),
-            new Attack(12),
-            new Attack(10),
-            new Attack(15),
-            new Attack(12)
+
         ];
         this.money = 30;
     }

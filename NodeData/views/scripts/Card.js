@@ -45,6 +45,7 @@ export class Attack extends Ability {
     constructor(attack=10, money=3) {
         super("Фаербол", '../image/fireball.png',
             'attack', money, attack);
+        this.attack = attack;
     }
 }
 

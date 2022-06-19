@@ -1,43 +1,141 @@
-import StartBattle from "./batlleProcess.js";
-
 export default class Arena {
-    constructor() {
+    constructor(player, enemy) {
         this.modal = document.getElementById('arena');
         this.name = this.modal.querySelector('.name-game');
         this.name.textContent = 'Арена';
+        this.player = player;
+        this.enemy = enemy;
         this.arena = this.modal.querySelector('.arena');
+        this.states = {
+            PlayerTurn: PlayerTurnState,
+            EnemyTurn: EnemyTurnState
+        };
+        this.state = new PlayerTurnState(this);
+    }
+
+
+    enter_arena () {
+        this.modal.style.display = 'flex';
+        this.modal.getElementsByClassName('enemyPicBlock')
+    .item(0).getElementsByTagName('img').item(0).src = this.enemy.image;
+        for (let card of this.player.inventory) {
+            let handler = function (card,e){
+                this.state.MakeMove(card);
+            };
+            let playerChose = handler.bind(this,card,true);
+            card.view.card.addEventListener('click',playerChose);
+            card.view.putInSet(this.modal.querySelector('.playerZone'), 160, 240);
+        }
+        for (let card of this.enemy.inventory) {
+            card.view.putInSetBack(this.modal.querySelector('.enemyCardsBlock'), 130, 140);
+        }
+        //setTimeout(this.exit_arena, 1000); // это прост чтоб пока смотреть другие арены
+    }
+
+    exit_arena = function () {
+        // arena.arena.innerHTML = '';
+        this.modal.style.display = 'none';
     }
 }
+
+
+function actionHandler(cardHolder,target,card){
+    switch (card.type) {
+        case 'attack':
+            target.damage(card.attack);
+            break;
+        case 'heal':
+            cardHolder.heal(card.heal);
+            break;
+        case 'shield':
+            cardHolder.pickUpShild(card.shield,card.shieldLifeTime);
+    }
+}
+class State{
+    constructor(arena) {
+        this.cardHolder='';
+        this.target='';
+        this.arena = arena;
+        this.actionHandler = actionHandler;
+    }
+    CanContinuePlay(){
+        return this.cardHolder.lives > 0 && this.cardHolder.inventory.length > 0;
+    }
+}
+
+class PlayerTurnState extends State{
+constructor(arena) {
+    super(arena);
+    this.cardHolder = arena.player;
+    this.target = arena.enemy;
+}
+    MakeMove(card){
+        console.log('Player');
+        console.log(this.cardHolder.lives)
+        if (!this.CanContinuePlay())
+        {
+            console.log('Player loose!');
+            this.arena.exit_arena();
+            return;
+        }
+        card.view.putInSet(this.arena.modal.querySelector('.arenaField'), 160, 240);
+        let del_card = this.arena.player.inventory.indexOf(card);
+        this.arena.player.inventory.splice(del_card, 1);
+        actionHandler(this.cardHolder,this.target,card);
+        if (this.PlayerDontKillByLastCard()){
+            console.log('Player loose!');
+            this.arena.exit_arena();
+            return;
+        }
+        this.state = new EnemyTurnState(this.arena);
+    }
+
+    PlayerDontKillByLastCard(){
+        return this.cardHolder.inventory.length === 0 && this.target.lives > 0;
+    }
+}
+class EnemyTurnState extends State{
+    constructor(arena) {
+        super(arena);
+        this.cardHolder = arena.enemy;
+        this.target = arena.player;
+        this.MakeMove();
+    }
+    MakeMove(){
+        console.log('Enemy');
+        if (!this.CanContinuePlay())
+        {
+            console.log('Player win!');
+            this.arena.exit_arena();
+            return;
+        }
+        let card = this.cardHolder.inventory[0];
+        let del_card = this.cardHolder.inventory.indexOf(card);
+        this.cardHolder.inventory.splice(del_card, 1);
+        card.view.card.putInSet(this.arena.modal.querySelector('.arenaField'));
+        actionHandler(this.cardHolder,this.target,card);
+        if (this.target.lives <=0){
+            console.log('Player loose!');
+            this.arena.exit_arena();
+            return;
+        }
+        console.log('Aeee')
+
+        if (this.cardHolder.inventory.length === 0 && this.target.lives > 0){
+            console.log('Player win!');
+            this.arena.exit_arena();
+            return;
+        }
+        this.state = new PlayerTurnState(this.arena);
+    }
+}
+
+
+
 makeScrollBeautiful('.playerZone');
 makeScrollBeautiful('.enemyCardsBlock');
-let enter_arena = function (arena, player, enemy) {
-    document.getElementById('inventory').setAttribute('display','none');//не работает
-    arena.modal.style.display = 'flex';
-    arena.modal.getElementsByClassName('enemyPicBlock')
-        .item(0).getElementsByTagName('img').item(0).src=enemy.image;
-    for (let card of player.inventory) {
-            card.view.putInSet(arena.modal.querySelector('.playerZone'), 160, 240);
-            card.view.putInSetBack(arena.modal.querySelector('.enemyCardsBlock'), 130, 140);
-    }
-    let status = StartBattle(arena,player,enemy);
-    if (status === 'Player Win'){
-        player.money += enemy.money;
-        player.changing_money(enemy.money);
-        console.log('Win')
-    }
-    else
-        console.log('Loose');
-    setTimeout(exit_arena,1000,arena); // это прост чтоб пока смотреть другие арены
-}
-
-
-let exit_arena = function (arena) {
-    // arena.arena.innerHTML = '';
-    arena.modal.style.display = 'none';
-}
-export {enter_arena,exit_arena, Arena};
-
-function makeScrollBeautiful(selector='.playerZone'){
+export {Arena};
+function makeScrollBeautiful(selector = '.playerZone') {
 
     let isDown = false;
     let startX;
@@ -64,7 +162,7 @@ function makeScrollBeautiful(selector='.playerZone'){
         slider.classList.remove('active');
     });
     slider.addEventListener('mousemove', (e) => {
-        if(!isDown) return;
+        if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - slider.offsetLeft;
         const walk = (x - startX) * 3; //scroll-fast

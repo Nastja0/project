@@ -1,11 +1,10 @@
-import {enter_arena,exit_arena, Arena} from "./arena.js";
+import {Arena} from "./arena.js";
 import CreateEnemy from "./Enemy.js";
 import {player} from "./start.js";
 const leveltree =document.querySelectorAll('.vertex');
 let allowedNodes = ['1']
 leveltree.forEach(el => {
     el.addEventListener("click", (e)=>{
-        console.log('qweqweqwe')
         let node = el;
         let id = node.getAttribute('id');
         if (allowedNodes.indexOf(id) === -1)
@@ -16,7 +15,7 @@ leveltree.forEach(el => {
         if (node.getAttribute('type') === 'enemy'){
             let name = node.getAttribute('enemy');
             let enemy = CreateEnemy(name);
-            enter_arena(new Arena(),player,enemy)
+            new Arena(player,enemy).enter_arena();
         }
     });
 })

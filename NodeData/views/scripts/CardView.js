@@ -10,6 +10,8 @@ const CardView = function() {
     }
 
     CardView.prototype.putInSet = function(deck, width = 200, height = 300) {
+        let putInEvent = new CustomEvent('putInEvent');
+        //elem.dispatchEvent(putInEvent);
         this.card.style.height = `${height}px`;
         this.card.style.width = `${width}px`;
         this.card.querySelector('.cardImage img').style.height = `${width * 3 / 4}px`;
