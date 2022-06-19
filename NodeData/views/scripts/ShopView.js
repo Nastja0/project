@@ -22,7 +22,7 @@ let get_shop = function (shop) {
         let card = creat_rand_card();
         shop.invent.push(card);
         card.view.card.addEventListener('click', () => {player.purchase(card)});
-        card.view.putInSet(shop.shop, 160, 240);
+        card.view.putInSet(shop.shop, 10);
     }
     shop.button.addEventListener('click', () => {exit_shop(shop)})
 }

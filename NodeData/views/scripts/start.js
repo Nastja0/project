@@ -38,7 +38,7 @@ function start_game() {
 }
 
 //выбор первых карт или "сундук"
-function start_set_cards(count) {
+export function start_set_cards(count) {
     let set_cards = new SetCardsView("Собери стартовый набор из 5 карт", count);
     add_cards(set_cards, player);
 }

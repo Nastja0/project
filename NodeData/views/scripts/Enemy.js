@@ -81,34 +81,7 @@ class DemonGigler extends Enemy{
         this.inventory = [
             new Attack(15),
             new Attack(15),
-            new Attack(15),
-            new Attack(15),
-            new Attack(15),
-            new Attack(15),
-            new Attack(15),
-            new Shield(25),
-            new Heal(15),
-            new Heal(15),
-            new Attack(15),
-            new Attack(15),
-            new Attack(15),
-            new Attack(15),
-            new Attack(15),
-            new Attack(15),
-            new Attack(15),
-            new Shield(25),
-            new Heal(15),
-            new Heal(15),
-            new Attack(15),
-            new Attack(15),
-            new Attack(15),
-            new Attack(15),
-            new Attack(15),
-            new Attack(15),
-            new Attack(15),
-            new Shield(25),
-            new Heal(15),
-            new Heal(15)
+
         ];
         this.lives = 80;
         this.money = 50;
@@ -119,29 +92,7 @@ class DemonMonkey extends Enemy{
         super('demonMonkey','../image/demonMonkey.png');
         this.inventory = [
             new Attack(15),
-            new Attack(18),
-            new Attack(15),
-            new Attack(20),
-            new Attack(15),
-            new Attack(18),
-            new Attack(15),
-            new Attack(20),
-            new Attack(15),
-            new Attack(18),
-            new Attack(15),
-            new Attack(20),
-            new Attack(15),
-            new Attack(18),
-            new Attack(15),
-            new Attack(20),
-            new Attack(15),
-            new Attack(18),
-            new Attack(15),
-            new Attack(20),
-            new Attack(15),
-            new Attack(18),
-            new Attack(15),
-            new Attack(20)
+
         ];
         this.money = 45;
     }
@@ -183,16 +134,7 @@ class Gigler extends Enemy{
         this.inventory = [
             new Attack(12),
             new Attack(12),
-            new Attack(12),
-            new Heal(15),
-            new Attack(12),
-            new Attack(12),
-            new Attack(12),
-            new Heal(15),
-            new Attack(12),
-            new Attack(12),
-            new Attack(12),
-            new Heal(15)
+            new Attack(10),
         ];
         this.lives = 80;
         this.money = 35;
@@ -204,17 +146,8 @@ class Salamandra extends Enemy{
         this.lives = 70;
         this.inventory = [
             new Attack(10),
-            new Attack(15),
-            new Attack(12),
-            new Attack(10),
-            new Attack(15),
-            new Attack(12),
-            new Attack(10),
-            new Attack(15),
-            new Attack(12),
-            new Attack(10),
-            new Attack(15),
-            new Attack(12)
+
+
         ];
         this.money = 30;
     }

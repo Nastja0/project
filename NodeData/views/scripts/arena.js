@@ -1,6 +1,6 @@
 import {inventory} from "./start.js";
 import {hide_inventory, show_inventory} from './InventoryView.js'
-
+var localHandler;
 export default class Arena {
     constructor(player, enemy) {
         this.modal = document.getElementById('arena');
@@ -21,16 +21,14 @@ export default class Arena {
         hide_inventory(inventory);
         this.modal.style.display = 'flex';
         this.modal.getElementsByClassName('enemyPicBlock')
-            .item(0).getElementsByTagName('img').item(0).src = this.enemy.image;
+    .item(0).getElementsByTagName('img').item(0).src = this.enemy.image;
         for (let card of this.player.inventory) {
-            let handler = function (card,e){
-                this.state.MakeMove(card);
-            };
-            let playerChose = handler.bind(this,card,true);
-            card.view.card.addEventListener('click',playerChose);
+            localHandler = cardHandler.bind(this,card,true);
+            card.view.card.addEventListener('click',localHandler);
             card.view.putInSet(this.modal.querySelector('.playerZone'), 15);
         }
         for (let card of this.enemy.inventory) {
+            card.view.card_back.style.display = 'block';
             card.view.putInSetBack(this.modal.querySelector('.enemyCardsBlock'), 26);
         }
         //setTimeout(this.exit_arena, 1000); // это прост чтоб пока смотреть другие арены
@@ -38,9 +36,19 @@ export default class Arena {
 
     exit_arena = function () {
         // arena.arena.innerHTML = '';
+        for (let card of this.player.inventory) {
+            card.view.card.removeEventListener('click',cardHandler);
+            card.view.card.removeEventListener('click',localHandler);
+            console.log(card.view.card);
+        }
         this.modal.style.display = 'none';
-show_inventory(inventory);
+        this.state = new PlayerTurnState(this);
+        show_inventory(inventory);
     }
+}
+
+var cardHandler = function (card,e){
+    this.state.MakeMove(card);
 }
 
 
@@ -65,10 +73,14 @@ class State{
     }
     PlayerWin(){
         console.log('Player win!');
-        this.arena.exit_arena()
+        this.arena.exit_arena();
     }
     PlayerLose(){
+        console.log(this.target);
+        console.log(this.cardHolder);
         console.log('Player loose!');
+        alert('Game over!')
+        location.reload();
         this.arena.exit_arena();
     }
 
@@ -85,7 +97,7 @@ class PlayerTurnState extends State{
     }
     MakeMove(card){
         console.log('Player');
-        console.log(this.cardHolder.lives)
+        console.log(this.target);
         if (!this.CanContinuePlay())
         {
             this.PlayerLose();
@@ -100,7 +112,7 @@ class PlayerTurnState extends State{
             this.PlayerLose();
             return;
         }
-        this.state = new EnemyTurnState(this.arena);
+        this.arena.state = new EnemyTurnState(this.arena);
     }
 
 PlayerDontKillByLastCard(){
@@ -118,6 +130,8 @@ class EnemyTurnState extends State{
         console.log('Enemy');
         if (!this.CanContinuePlay())
         {
+            console.log(this);
+            console.log('Bag here');
             this.PlayerWin();
             return;
         }
@@ -133,10 +147,12 @@ class EnemyTurnState extends State{
             return;
         }
         if (this.cardHolder.inventory.length === 0){
+            console.log('Bag here');
+
             this.PlayerWin();
             return;
         }
-        this.state = new PlayerTurnState(this.arena);
+        this.arena.state = new PlayerTurnState(this.arena);
     }
 }
 
