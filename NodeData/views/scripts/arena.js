@@ -22,6 +22,7 @@ export default class Arena {
             let handler = function (card,e){
                 this.state.MakeMove(card);
             };
+
             let playerChose = handler.bind(this,card,true);
             card.view.card.addEventListener('click',playerChose);
             card.view.putInSet(this.modal.querySelector('.playerZone'), 160, 240);
