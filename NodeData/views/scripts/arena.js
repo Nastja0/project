@@ -17,17 +17,17 @@ export default class Arena {
     enter_arena () {
         this.modal.style.display = 'flex';
         this.modal.getElementsByClassName('enemyPicBlock')
-    .item(0).getElementsByTagName('img').item(0).src = this.enemy.image;
+            .item(0).getElementsByTagName('img').item(0).src = this.enemy.image;
         for (let card of this.player.inventory) {
             let handler = function (card,e){
                 this.state.MakeMove(card);
             };
             let playerChose = handler.bind(this,card,true);
             card.view.card.addEventListener('click',playerChose);
-            card.view.putInSet(this.modal.querySelector('.playerZone'), 160, 240);
+            card.view.putInSet(this.modal.querySelector('.playerZone'), 140, 210);
         }
         for (let card of this.enemy.inventory) {
-            card.view.putInSetBack(this.modal.querySelector('.enemyCardsBlock'), 130, 140);
+            card.view.putInSetBack(this.modal.querySelector('.enemyCardsBlock'), 70, 105);
         }
         //setTimeout(this.exit_arena, 1000); // это прост чтоб пока смотреть другие арены
     }
@@ -73,11 +73,11 @@ class State{
 }
 
 class PlayerTurnState extends State{
-constructor(arena) {
-    super(arena);
-    this.cardHolder = arena.player;
-    this.target = arena.enemy;
-}
+    constructor(arena) {
+        super(arena);
+        this.cardHolder = arena.player;
+        this.target = arena.enemy;
+    }
     MakeMove(card){
         console.log('Player');
         console.log(this.cardHolder.lives)
@@ -86,6 +86,7 @@ constructor(arena) {
             this.PlayerLose();
             return;
         }
+        this.arena.modal.querySelector('.arenaField').innerHTML='';
         card.view.putInSet(this.arena.modal.querySelector('.arenaField'), 160, 240);
         let del_card = this.arena.player.inventory.indexOf(card);
         this.arena.player.inventory.splice(del_card, 1);
@@ -97,9 +98,9 @@ constructor(arena) {
         this.state = new EnemyTurnState(this.arena);
     }
 
-    PlayerDontKillByLastCard(){
-        return this.cardHolder.inventory.length === 0 && this.target.lives > 0;
-    }
+PlayerDontKillByLastCard(){
+    return this.cardHolder.inventory.length === 0 && this.target.lives > 0;
+}
 }
 class EnemyTurnState extends State{
     constructor(arena) {
@@ -116,6 +117,7 @@ class EnemyTurnState extends State{
             return;
         }
         let card = this.cardHolder.inventory[0];
+        card.view.card_back.style.display = 'none';
         let del_card = this.cardHolder.inventory.indexOf(card);
         this.cardHolder.inventory.splice(del_card, 1);
         this.arena.modal.querySelector('.arenaField').innerHTML='';
@@ -174,3 +176,10 @@ function makeScrollBeautiful(selector = '.playerZone') {
 
 }
 
+function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+        currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+}
