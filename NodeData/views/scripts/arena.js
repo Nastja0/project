@@ -109,7 +109,7 @@ class PlayerTurnState extends State{
         card.view.putInSet(this.arena.modal.querySelector('.arenaField'), 13);
         let del_card = this.arena.player.inventory.indexOf(card);
         this.arena.player.inventory.splice(del_card, 1);
-        actionHandler(this.cardHolder,this.target,card);
+        actionHandler(this.arena.player,this.arena.enemy,card);
         if (this.PlayerDontKillByLastCard()){
             this.PlayerLose();
             return;
@@ -140,7 +140,7 @@ class EnemyTurnState extends State{
         this.cardHolder.inventory.splice(del_card, 1);
         this.arena.modal.querySelector('.arenaField').innerHTML='';
         card.view.putInSet(this.arena.modal.querySelector('.arenaField'), 13);
-        actionHandler(this.cardHolder,this.target,card);
+        actionHandler(this.arena.enemy,this.arena.player,card);
         if (this.target.lives <=0){
             this.PlayerLose();
             return;
