@@ -18,10 +18,14 @@ class ShopView {
 let get_shop = function (shop) {
     hide_inventory(inventory);
     shop.modal.style.display = 'flex';
-    for (let number = 0; number < 4; number++){
+    for (let number = 0; number < 10; number++){
         let card = creat_rand_card();
         shop.invent.push(card);
-        card.view.card.addEventListener('click', () => {player.purchase(card)});
+        card.event = function () {
+            player.purchase(card);
+            card.view.card.style.display = 'none';
+        }
+        card.view.card.addEventListener('click', card.event);
         card.view.putInSet(shop.shop, 10);
     }
     shop.button.addEventListener('click', () => {exit_shop(shop)})
@@ -29,7 +33,7 @@ let get_shop = function (shop) {
 
 let exit_shop = function (shop) {
     for (let card of shop.invent) {
-        card.view.card.removeEventListener('click', () => {player.purchase(card)});
+        card.view.card.removeEventListener('click', card.event);
     }
     shop.invent = [];
     shop.shop.innerHTML = '';

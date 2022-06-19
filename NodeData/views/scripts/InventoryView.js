@@ -18,6 +18,7 @@ let get_inventory = function (inventory) {
         card.event = function () {
             player.income(card)
         }
+        card.view.card.style.display = 'flex';
         card.view.card.addEventListener('click', card.event);
         card.view.putInSet(inventory.inventory, 10);
     }
