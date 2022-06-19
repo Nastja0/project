@@ -58,6 +58,15 @@ class State{
         this.arena = arena;
         this.actionHandler = actionHandler;
     }
+    PlayerWin(){
+        console.log('Player win!');
+        this.arena.exit_arena()
+    }
+    PlayerLose(){
+        console.log('Player loose!');
+        this.arena.exit_arena();
+    }
+
     CanContinuePlay(){
         return this.cardHolder.lives > 0 && this.cardHolder.inventory.length > 0;
     }
@@ -74,8 +83,7 @@ constructor(arena) {
         console.log(this.cardHolder.lives)
         if (!this.CanContinuePlay())
         {
-            console.log('Player loose!');
-            this.arena.exit_arena();
+            this.PlayerLose();
             return;
         }
         card.view.putInSet(this.arena.modal.querySelector('.arenaField'), 160, 240);
@@ -83,8 +91,7 @@ constructor(arena) {
         this.arena.player.inventory.splice(del_card, 1);
         actionHandler(this.cardHolder,this.target,card);
         if (this.PlayerDontKillByLastCard()){
-            console.log('Player loose!');
-            this.arena.exit_arena();
+            this.PlayerLose();
             return;
         }
         this.state = new EnemyTurnState(this.arena);
@@ -105,25 +112,21 @@ class EnemyTurnState extends State{
         console.log('Enemy');
         if (!this.CanContinuePlay())
         {
-            console.log('Player win!');
-            this.arena.exit_arena();
+            this.PlayerWin();
             return;
         }
         let card = this.cardHolder.inventory[0];
         let del_card = this.cardHolder.inventory.indexOf(card);
         this.cardHolder.inventory.splice(del_card, 1);
-        card.view.card.putInSet(this.arena.modal.querySelector('.arenaField'));
+        this.arena.modal.querySelector('.arenaField').innerHTML='';
+        card.view.putInSet(this.arena.modal.querySelector('.arenaField'), 160, 240);
         actionHandler(this.cardHolder,this.target,card);
         if (this.target.lives <=0){
-            console.log('Player loose!');
-            this.arena.exit_arena();
+            this.PlayerLose();
             return;
         }
-        console.log('Aeee')
-
-        if (this.cardHolder.inventory.length === 0 && this.target.lives > 0){
-            console.log('Player win!');
-            this.arena.exit_arena();
+        if (this.cardHolder.inventory.length === 0){
+            this.PlayerWin();
             return;
         }
         this.state = new PlayerTurnState(this.arena);
