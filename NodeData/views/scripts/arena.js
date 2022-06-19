@@ -1,3 +1,6 @@
+import {inventory} from "./start.js";
+import {hide_inventory, show_inventory} from './InventoryView.js'
+
 export default class Arena {
     constructor(player, enemy) {
         this.modal = document.getElementById('arena');
@@ -15,7 +18,7 @@ export default class Arena {
 
 
     enter_arena () {
-        /*сюда функцию закрытия инвентаря*/
+        hide_inventory(inventory);
         this.modal.style.display = 'flex';
         this.modal.getElementsByClassName('enemyPicBlock')
             .item(0).getElementsByTagName('img').item(0).src = this.enemy.image;
@@ -36,8 +39,7 @@ export default class Arena {
     exit_arena = function () {
         // arena.arena.innerHTML = '';
         this.modal.style.display = 'none';
-        /*сюда функцию отображение инвентаря*/
-
+show_inventory(inventory);
     }
 }
 

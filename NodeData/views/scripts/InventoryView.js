@@ -15,7 +15,7 @@ let get_inventory = function (inventory) {
     inventory.modal.style.display = 'flex';
     for (let card of player.inventory) {
         card.view.card.addEventListener('click', () => {player.income(card)});
-        card.view.putInSet(inventory.inventory, 160, 240);
+        card.view.putInSet(inventory.inventory, 10);
     }
 }
 
@@ -27,4 +27,14 @@ let exit_inventory = function (inventory) {
     inventory.modal.style.display = 'none';
 }
 
-export {InventoryView, get_inventory, exit_inventory};
+/*прячем инвентарь*/
+let hide_inventory = function (inventory) {
+    inventory.inventoryImg.style.display = 'none';
+}
+
+/*показываем инвентарь*/
+let show_inventory = function (inventory) {
+    inventory.inventoryImg.style.display = 'flex';
+}
+
+export {InventoryView, get_inventory, exit_inventory, hide_inventory, show_inventory};

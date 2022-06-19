@@ -1,5 +1,6 @@
-import {player} from "./start.js";
+import {inventory, player} from "./start.js";
 import creat_rand_card from "./Card.js";
+import {hide_inventory, show_inventory} from './InventoryView.js'
 
 class ShopView {
     constructor() {
@@ -15,7 +16,7 @@ class ShopView {
 }
 
 let get_shop = function (shop) {
-    /*сюда функцию закрытия инвентаря*/
+    hide_inventory(inventory);
     shop.modal.style.display = 'flex';
     for (let number = 0; number < 4; number++){
         let card = creat_rand_card();
@@ -33,7 +34,7 @@ let exit_shop = function (shop) {
     shop.invent = [];
     shop.shop.innerHTML = '';
     shop.modal.style.display = 'none';
-    /*сюда функцию отображения инвентаря*/
+    show_inventory(inventory);
 }
 
 export {ShopView, get_shop, exit_shop};

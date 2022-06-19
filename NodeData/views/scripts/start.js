@@ -1,10 +1,10 @@
 import Player from "./Player.js";
 import {add_cards, SetCardsView} from './SetCardsView.js';
-import {exit_inventory, get_inventory, InventoryView} from './InventoryView.js';
+import {exit_inventory, get_inventory, InventoryView, hide_inventory, show_inventory} from './InventoryView.js';
 import {ShopView, get_shop, exit_shop} from "./ShopView.js";
 
 export let player;
-let inventory;
+export let inventory;
 let numbInv = 0;
 
 start_game();
@@ -71,9 +71,8 @@ get_shop(t);
 
 
 /*открытие сундука
-сюда функцию закрытия инвентаря
-
+hide_inventory(inventory);
 start_set_cards(1);
-сюда функцию отображение инвентаря
+show_inventory(inventory);
 */
 
