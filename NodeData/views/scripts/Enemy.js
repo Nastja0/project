@@ -31,7 +31,6 @@ class Enemy {
 
     //получение урона
     damage(lives) {
-        console.log('Damage on enemy');
         console.log(lives);
         if(this.shieldLifeTime !== 0){
             this.defence(lives);
@@ -147,6 +146,7 @@ class Salamandra extends Enemy{
             new Attack(10),
             new Attack(10),
             new Attack(10),
+
         ];
         this.money = 30;
     }

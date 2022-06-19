@@ -14,7 +14,6 @@ export default class Player {
 
     //получение урона
     damage(lives) {
-        console.log('Damage');
         if(this.shieldLifeTime !== 0){
             this.defence(lives);
         }

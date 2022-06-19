@@ -24,7 +24,7 @@ export default class Arena {
         this.modal.getElementsByClassName('enemyPicBlock')
     .item(0).getElementsByTagName('img').item(0).src = this.enemy.image;
         for (let card of this.player.inventory) {
-            let localHandler = cardHandler.bind(this,card,true);
+            let localHandler = cardHandler.bind(this,card,false);
             cardHandlers.push(localHandler);
             card.view.card.addEventListener('click',localHandler);
             card.view.putInSet(this.modal.querySelector('.playerZone'), 15);
@@ -50,6 +50,9 @@ export default class Arena {
 }
 
 var cardHandler = function (card,e){
+    console.log('CLIIIIIIIIIIIIIIIICK');
+    this.state = new PlayerTurnState(this);
+    console.log(this.state.MakeMove);
     this.state.MakeMove(card);
 }
 
@@ -64,6 +67,7 @@ function actionHandler(cardHolder,target,card){
             break;
         case 'shield':
             cardHolder.pickUpShild(card.shield,card.shieldLifeTime);
+            break;
     }
 }
 class State{
