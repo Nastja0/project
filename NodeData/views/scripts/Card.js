@@ -28,6 +28,9 @@ class Card {
 
         this.view = new View();
         this.updateView();
+
+        this.event = function () {
+        };
     }
 }
 
