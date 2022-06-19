@@ -142,13 +142,11 @@ class Gigler extends Enemy{
 class Salamandra extends Enemy{
     constructor() {
         super('salamandra','../image/salamandra.png');
-        this.lives = 20;
+        this.lives = 30;
         this.inventory = [
             new Attack(10),
             new Attack(10),
             new Attack(10),
-
-
         ];
         this.money = 30;
     }
