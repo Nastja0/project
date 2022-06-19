@@ -23,7 +23,7 @@ leveltree.forEach(el => {
         }
         if (type === 'Chest'){
             hide_inventory(inventory);
-            start_set_cards(2);
+            start_set_cards(2,'Выбери две карты');
             show_inventory(inventory);
         }
         if (type === 'Shop'){

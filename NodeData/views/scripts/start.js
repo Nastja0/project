@@ -38,8 +38,8 @@ function start_game() {
 }
 
 //выбор первых карт или "сундук"
-export function start_set_cards(count) {
-    let set_cards = new SetCardsView("Собери стартовый набор из 5 карт", count);
+export function start_set_cards(count,msg="Собери стартовый набор из 5 карт") {
+    let set_cards = new SetCardsView(msg, count);
     add_cards(set_cards, player);
 }
 
