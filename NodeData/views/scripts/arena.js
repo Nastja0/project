@@ -19,6 +19,7 @@ export default class Arena {
 
     enter_arena () {
         hide_inventory(inventory);
+        this.state = new PlayerTurnState(this);
         this.modal.style.display = 'flex';
         this.modal.getElementsByClassName('enemyPicBlock')
     .item(0).getElementsByTagName('img').item(0).src = this.enemy.image;
@@ -74,6 +75,8 @@ class State{
     }
     PlayerWin(){
         console.log('Player win!');
+        this.arena.player.money += this.arena.enemy.money;
+        this.arena.player.changing_money();
         this.arena.exit_arena();
     }
     PlayerLose(){
@@ -97,8 +100,6 @@ class PlayerTurnState extends State{
         this.target = arena.enemy;
     }
     MakeMove(card){
-        console.log('Player');
-        console.log(this.target);
         if (!this.CanContinuePlay())
         {
             this.PlayerLose();
@@ -128,11 +129,8 @@ class EnemyTurnState extends State{
         this.MakeMove();
     }
     MakeMove(){
-        console.log('Enemy');
         if (!this.CanContinuePlay())
         {
-            console.log(this);
-            console.log('Bag here');
             this.PlayerWin();
             return;
         }
@@ -148,8 +146,6 @@ class EnemyTurnState extends State{
             return;
         }
         if (this.cardHolder.inventory.length === 0){
-            console.log('Bag here');
-
             this.PlayerWin();
             return;
         }

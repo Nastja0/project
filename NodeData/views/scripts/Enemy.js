@@ -31,14 +31,13 @@ class Enemy {
 
     //получение урона
     damage(lives) {
-        if(this.shieldLifeTime !== 0)
+        console.log('Damage on enemy');
+        console.log(lives);
+        if(this.shieldLifeTime !== 0){
             this.defence(lives);
-        if (this.lives >= lives) {
-            this.lives -= lives;
-            this.changing_lives();
-            return true;
         }
-        return this.game_over();
+        this.lives -= lives;
+        this.changing_lives();
     }
 
     //лечение
@@ -143,8 +142,10 @@ class Gigler extends Enemy{
 class Salamandra extends Enemy{
     constructor() {
         super('salamandra','../image/salamandra.png');
-        this.lives = 70;
+        this.lives = 20;
         this.inventory = [
+            new Attack(10),
+            new Attack(10),
             new Attack(10),
 
 

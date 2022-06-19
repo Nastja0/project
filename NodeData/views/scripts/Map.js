@@ -19,7 +19,6 @@ leveltree.forEach(el => {
             let name = node.getAttribute('enemy');
             let enemy = CreateEnemy(name);
             let arena = new Arena(player,enemy);
-            console.log(arena);
             arena.enter_arena();
         }
         if (type === 'Chest'){
