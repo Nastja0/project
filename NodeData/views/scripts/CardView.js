@@ -9,19 +9,26 @@ const CardView = function() {
         this.card.addEventListener('click', this.signalChoose);
     }
 
-    CardView.prototype.putInSet = function(deck, width = 200, height = 300) {
+    CardView.prototype.putInSet = function(deck, width = 8) {
+        let width_new = document.documentElement.clientWidth / width;
+        let height_new = width_new / 2 * 3;
         let putInEvent = new CustomEvent('putInEvent');
         //elem.dispatchEvent(putInEvent);
-        this.card.style.height = `${height}px`;
-        this.card.style.width = `${width}px`;
-        this.card.querySelector('.cardImage img').style.height = `${width * 3 / 4}px`;
-        this.card.querySelector('.cardImage img').style.width = `${width * 3 / 4}px`;
+        this.card.style.height = `${height_new}px`;
+        this.card.style.width = `${width_new}px`;
+        this.card.querySelector('.cardImage img').style.height = `${width_new * 3 / 4}px`;
+        this.card.querySelector('.cardImage img').style.width = `${width_new * 3 / 4}px`;
+        this.card.querySelector('.descriptions').style.fontSize = `${width_new /10}px`;
+        this.card.querySelector('.money').style.fontSize = `${width_new /10}px`;
+        this.card.querySelector('.cardName').style.fontSize = `${width_new /8}px`;
         deck.appendChild(this.card);
     };
 
-    CardView.prototype.putInSetBack = function(deck, width = 200, height = 300) {
-        this.card_back.style.height = `${height}px`;
-        this.card_back.style.width = `${width}px`;
+    CardView.prototype.putInSetBack = function(deck, width = 8) {
+        let width_new = document.documentElement.clientWidth / width;
+        let height_new = width_new / 2 * 3;
+        this.card_back.style.height = `${height_new}px`;
+        this.card_back.style.width = `${width_new}px`;
         deck.appendChild(this.card_back);
     };
 

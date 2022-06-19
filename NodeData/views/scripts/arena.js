@@ -24,10 +24,10 @@ export default class Arena {
             };
             let playerChose = handler.bind(this,card,true);
             card.view.card.addEventListener('click',playerChose);
-            card.view.putInSet(this.modal.querySelector('.playerZone'), 140, 210);
+            card.view.putInSet(this.modal.querySelector('.playerZone'), 15);
         }
         for (let card of this.enemy.inventory) {
-            card.view.putInSetBack(this.modal.querySelector('.enemyCardsBlock'), 70, 105);
+            card.view.putInSetBack(this.modal.querySelector('.enemyCardsBlock'), 26);
         }
         //setTimeout(this.exit_arena, 1000); // это прост чтоб пока смотреть другие арены
     }
@@ -87,7 +87,7 @@ class PlayerTurnState extends State{
             return;
         }
         this.arena.modal.querySelector('.arenaField').innerHTML='';
-        card.view.putInSet(this.arena.modal.querySelector('.arenaField'), 160, 240);
+        card.view.putInSet(this.arena.modal.querySelector('.arenaField'), 13);
         let del_card = this.arena.player.inventory.indexOf(card);
         this.arena.player.inventory.splice(del_card, 1);
         actionHandler(this.cardHolder,this.target,card);
@@ -121,7 +121,7 @@ class EnemyTurnState extends State{
         let del_card = this.cardHolder.inventory.indexOf(card);
         this.cardHolder.inventory.splice(del_card, 1);
         this.arena.modal.querySelector('.arenaField').innerHTML='';
-        card.view.putInSet(this.arena.modal.querySelector('.arenaField'), 160, 240);
+        card.view.putInSet(this.arena.modal.querySelector('.arenaField'), 13);
         actionHandler(this.cardHolder,this.target,card);
         if (this.target.lives <=0){
             this.PlayerLose();
