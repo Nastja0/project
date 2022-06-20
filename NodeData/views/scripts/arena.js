@@ -26,6 +26,7 @@ export default class Arena {
         for (let card of this.player.inventory) {
             let localHandler = cardHandler.bind(this,card,false);
             cardHandlers.push(localHandler);
+            card.view.card.style.display='block';
             card.view.card.addEventListener('click',localHandler);
             card.view.putInSet(this.modal.querySelector('.playerZone'), 15);
         }
