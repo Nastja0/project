@@ -1,4 +1,4 @@
-import {inventory} from "./start.js";
+import {inventory, player} from "./start.js";
 import {hide_inventory, show_inventory} from './InventoryView.js'
 let cardHandlers = [];
 export default class Arena {
@@ -43,6 +43,10 @@ export default class Arena {
                 card.view.card.removeEventListener('click',handler);
             }
         }
+        for (let card of this.enemy.inventory) {
+            card.view.card_back.remove();
+        }
+
         this.modal.style.display = 'none';
         this.state = new PlayerTurnState(this);
         show_inventory(inventory);
@@ -50,9 +54,7 @@ export default class Arena {
 }
 
 var cardHandler = function (card,e){
-    console.log('CLIIIIIIIIIIIIIIIICK');
     this.state = new PlayerTurnState(this);
-    console.log(this.state.MakeMove);
     this.state.MakeMove(card);
 }
 
@@ -79,15 +81,22 @@ class State{
     }
     PlayerWin(){
         console.log('Player win!');
+        let msg = this.arena.enemy.lives > 0 ? 'У противника кончились карты': 'Вы убили противника досмерти:)';
+        alert(msg);
         this.arena.player.money += this.arena.enemy.money;
         this.arena.player.changing_money();
+        if (this.arena.enemy.name ==='demonSalamandra'){
+            alert('Поздравляем,вы прошли игру!')
+            location.reload();
+        }
         this.arena.exit_arena();
     }
     PlayerLose(){
         console.log(this.target);
         console.log(this.cardHolder);
         console.log('Player loose!');
-        alert('Game over!')
+        let msg = player.lives > 0 ? 'У вас кончились карты': 'Вас убили досмерти:)'
+        alert('Game over!' + msg)
         location.reload();
         this.arena.exit_arena();
     }
@@ -104,6 +113,8 @@ class PlayerTurnState extends State{
         this.target = arena.enemy;
     }
     MakeMove(card){
+        console.log('Player');
+        console.log(this.arena.player.lives);
         if (!this.CanContinuePlay())
         {
             this.PlayerLose();
@@ -115,6 +126,10 @@ class PlayerTurnState extends State{
         this.arena.player.inventory.splice(del_card, 1);
         actionHandler(this.arena.player,this.arena.enemy,card);
         if (this.PlayerDontKillByLastCard()){
+            this.PlayerLose();
+            return;
+        }
+        if (this.arena.player.inventory.length === 0 && this.arena.enemy.lives > 0){
             this.PlayerLose();
             return;
         }
@@ -133,6 +148,8 @@ class EnemyTurnState extends State{
         this.MakeMove();
     }
     MakeMove(){
+        console.log(this.arena.enemy.name);
+        console.log(this.arena.enemy.lives);
         if (!this.CanContinuePlay())
         {
             this.PlayerWin();
@@ -151,6 +168,10 @@ class EnemyTurnState extends State{
         }
         if (this.cardHolder.inventory.length === 0){
             this.PlayerWin();
+            return;
+        }
+        if (this.arena.player.inventory.length === 0 && this.arena.enemy.lives > 0){
+            this.PlayerLose();
             return;
         }
         this.arena.state = new PlayerTurnState(this.arena);
